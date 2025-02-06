@@ -13,24 +13,36 @@
 .navbar-header {
     grid-area: nav;
     background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .profile-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px; /* Slightly reduced for better fit */
+    padding: 4px;
+    margin-right: 5px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    height: 40px; /* Set to 40px */
 }
 
+/* Avatar Resized */
 .avatar-container {
-    width: 50px;
-    height: 50px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    border: 3px solid dodgerblue;
+    border: 2px solid dodgerblue;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Ensure Image Fits */
 .avatar-container img {
     width: 100%;
     height: 100%;
@@ -38,14 +50,21 @@
     border-radius: 50%;
 }
 
-.user-info p {
-    margin: 0;
-    font-size: 14px;
-    color: #333;
+/* User Info Adjustments */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.user-info p {
+    margin: 0;
+    line-height: 1;
+    font-size: 12px;
+    color: #333;
+    white-space: nowrap;
+}
 /* End Navbar Header */
-
 .sidebar {
     grid-area: sidebar;
     background: #fff;
