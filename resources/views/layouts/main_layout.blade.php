@@ -33,13 +33,9 @@
 
     <body>
         <div class="body-content bg-slate-100">
-            <div class="navbar-header">
+            @include('layouts.navbar')
 
-            </div>
-
-            <div class="sidebar">
-
-            </div>
+            @include('layouts.sidebar')
 
             <div class="main-content">
                 @yield('content')
