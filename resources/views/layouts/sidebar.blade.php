@@ -8,7 +8,8 @@
     <div class="sidebar-container h-screen text-nowrap">
         <ul class="side-items pt-10 ps-2 pe-2 pb-5 overflow-hidden">
             <li class="item-list">
-                <a href="#" class="item-links">
+                <a href="{{route('admin.dashboard')}}"
+                    class="item-links {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}">
                     <i class="fa-solid fa-desktop"></i> Dashboard
                 </a>
             </li>
