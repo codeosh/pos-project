@@ -21,16 +21,15 @@
 .profile-container {
     display: flex;
     align-items: center;
-    gap: 8px; /* Slightly reduced for better fit */
+    gap: 8px;
     padding: 4px;
     margin-right: 5px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-    height: 40px; /* Set to 40px */
+    height: 40px;
 }
 
-/* Avatar Resized */
 .avatar-container {
     width: 32px;
     height: 32px;
@@ -42,7 +41,6 @@
     justify-content: center;
 }
 
-/* Ensure Image Fits */
 .avatar-container img {
     width: 100%;
     height: 100%;
@@ -50,7 +48,6 @@
     border-radius: 50%;
 }
 
-/* User Info Adjustments */
 .user-info {
     display: flex;
     flex-direction: column;
@@ -65,6 +62,7 @@
     white-space: nowrap;
 }
 /* End Navbar Header */
+
 .sidebar {
     grid-area: sidebar;
     background: #fff;
