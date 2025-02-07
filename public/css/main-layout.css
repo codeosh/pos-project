@@ -116,6 +116,9 @@
     border: 1px solid #0160be;
     transition: all 0.3s ease;
 }
+.item-links:hover i {
+    animation: fa-beat 1s infinite;
+}
 /* End Sidebar */
 
 .main-content {
