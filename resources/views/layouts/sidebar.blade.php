@@ -15,7 +15,8 @@
             </li>
             <hr class="mt-5 mb-3">
             <li class="item-list">
-                <a href="#" class="item-links">
+                <a href="{{route('page.item-category')}}"
+                    class="item-links {{ Request::routeIs('page.item-category') ? 'active' : '' }}">
                     <i class="fa-solid fa-list"></i> Item Category
                 </a>
             </li>

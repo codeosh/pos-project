@@ -23,3 +23,10 @@ Route::middleware([RoleMiddleware::class . ':user'])->group(function () {
         return view('dashboard.user_dashboard');
     })->name('user.dashboard');
 });
+
+// Group User and Admin Routes
+Route::middleware([RoleMiddleware::class . ':admin'], [RoleMiddleware::class . ':user'])->group(function () {
+    Route::get('/item-category', function () {
+        return view('pages.item_category');
+    })->name('page.item-category');
+});
