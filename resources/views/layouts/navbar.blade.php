@@ -1,7 +1,9 @@
 {{-- resources\views\layouts\navbar.blade.php --}}
 <div class="navbar-header">
     <div class="logo-container">
-        <h5>POS</h5>
+        <button id="menu-bars">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </div>
 
     <div class="profile-container">
@@ -9,8 +11,8 @@
             <img src="{{asset('images/pictures/Nitro-wallpaper.jpg')}}" alt="Profile Picture">
         </div>
         <div class="user-info">
-            <p>Derek Joshua T. Catigan</p>
-            <p>Admin</p>
+            <p class="user-name">Derek Catigan</p>
+            <p class="user-role">Admin</p>
         </div>
     </div>
 </div>

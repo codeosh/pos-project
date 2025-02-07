@@ -41,6 +41,9 @@
                 @yield('content')
             </div>
         </div>
+
+        {{-- Scripts Compiled --}}
+        <script src="{{asset('js/layouts/sidebar.js')}}"></script>
     </body>
 
 </html>
