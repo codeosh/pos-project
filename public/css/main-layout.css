@@ -7,7 +7,7 @@
     grid-template-areas:
         "sidebar nav"
         "sidebar main";
-    transition: grid-template-columns 0.8s ease;
+    transition: grid-template-columns 0.5s ease;
 }
 .body-content.collapsed {
     grid-template-columns: 0 1fr;
@@ -83,16 +83,40 @@
 }
 /* End Navbar Header */
 
+/* Sidebar */
 .sidebar {
     grid-area: sidebar;
     background: #fff;
     width: 200px;
-    transition: width 0.8s ease;
+    transition: width 0.5s ease;
 }
 .sidebar.active {
     width: 0;
     overflow: hidden;
 }
+.item-list {
+    width: 100%;
+    margin-top: 5px;
+}
+.item-links {
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    padding: 5px 10px;
+    border-radius: 3px;
+    background: #e5e7eb;
+    color: rgb(31 41 55);
+    font-size: 0.9rem;
+    border: 1px solid #929698;
+}
+
+.item-links:hover {
+    color: #fff;
+    background: #1e90ff;
+    border: 1px solid #0160be;
+    transition: all 0.3s ease;
+}
+/* End Sidebar */
 
 .main-content {
     grid-area: main;
