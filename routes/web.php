@@ -29,4 +29,7 @@ Route::middleware([RoleMiddleware::class . ':admin'], [RoleMiddleware::class . '
     Route::get('/item-category', function () {
         return view('pages.item_category');
     })->name('page.item-category');
+    Route::get('/contacts', function () {
+        return view('pages.contact');
+    })->name('page.contact');
 });

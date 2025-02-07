@@ -20,6 +20,12 @@
                     <i class="fa-solid fa-list"></i> Item Category
                 </a>
             </li>
+            <li class="item-list">
+                <a href="{{route('page.contact')}}"
+                    class="item-links {{ Request::routeIs('page.contact') ? 'active' : '' }}">
+                    <i class="fa-solid fa-phone"></i> Contacts
+                </a>
+            </li>
         </ul>
     </div>
 </div>
