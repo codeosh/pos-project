@@ -4,8 +4,12 @@
 @section('title', 'Item-Category - POS')
 
 @section('content')
-<div class="flex gap-5 p-3">
-    <x-bladewind::input placeholder="Code" size="small" />
-    <x-bladewind::input placeholder="Description" size="small" />
+<div class="inline-flex items-center p-3 space-x-2">
+    <div class="w-auto">
+        <x-bladewind::input placeholder="Code" size="small" class="!w-20" />
+    </div>
+    <div class="w-auto">
+        <x-bladewind::input placeholder="Description" size="small" />
+    </div>
 </div>
 @endsection
