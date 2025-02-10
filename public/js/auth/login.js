@@ -40,4 +40,20 @@ $(document).ready(function () {
             $("#loginForm").submit();
         }
     });
+
+    $("#logoutBtn").click(function () {
+        $.ajax({
+            url: "{{ route('logout') }}",
+            type: "POST",
+            headers: {
+                "X-CSRF-TOKEN": "{{ csrf_token() }}",
+            },
+            success: function () {
+                window.location.href = "{{ url('/') }}";
+            },
+            error: function (xhr) {
+                console.error("Logout failed:", xhr.responseText);
+            },
+        });
+    });
 });
