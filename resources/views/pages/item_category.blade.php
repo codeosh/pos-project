@@ -6,10 +6,10 @@
 @section('content')
 <div class="inline-flex items-center p-3 space-x-2">
     <div class="w-auto">
-        <x-bladewind::input placeholder="Code" style="width: 10rem;" />
+        <x-bladewind::input type="text" placeholder="Code" style="width: 10rem;" />
     </div>
     <div class="w-auto">
-        <x-bladewind::input placeholder="Description" style="width: 30rem;" />
+        <x-bladewind::input type="text" placeholder="Description" style="width: 30rem;" />
     </div>
 </div>
 @endsection
