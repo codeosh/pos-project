@@ -129,6 +129,24 @@
 }
 /* End Sidebar */
 
+/* Main Content */
 .main-content {
     grid-area: main;
+}
+/* End Main Content */
+
+/* Item Category Page */
+.item-categoryInput {
+    width: 20rem;
+}
+.item-categoryInput.code-input {
+    width: 12rem;
+}
+/* End Item Category Page */
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .item-categoryInput.code-input {
+        width: 20rem;
+    }
 }
