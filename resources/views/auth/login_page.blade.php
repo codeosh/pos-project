@@ -15,14 +15,10 @@
                 <x-bladewind.input name="email" label="Email" type="email" required />
             </div>
             <div class="mb-4">
-                <x-bladewind.input name="password" label="Password" type="password" required />
+                <x-bladewind.input name="password" label="Password" type="password" viewable="true" required />
             </div>
-            <div class="flex justify-between items-center mb-10">
-                <a href="" class="text-sm text-blue-600 hover:underline">Forgot password?</a>
-                <label class="inline-flex items-center">
-                    <input type="checkbox" id="show-password" class="rounded">
-                    <span class="ml-2 text-sm text-gray-600">Show password</span>
-                </label>
+            <div class="flex items-center mb-10">
+                <a href="#" class="text-sm text-blue-600 hover:underline">Forgot password?</a>
             </div>
             <x-bladewind::button id="bladewindSubmitBtn" type="submit" color="primary" class="w-full text-white">Login
             </x-bladewind::button>

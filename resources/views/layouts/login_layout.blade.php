@@ -33,7 +33,7 @@
     <body>
 
         {{-- Scripts Compiled --}}
-        <script src="{{asset('js/auth/showpass.js')}}"></script>
+
         @yield('content')
     </body>
 
