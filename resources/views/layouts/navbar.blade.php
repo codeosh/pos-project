@@ -35,17 +35,8 @@
 
         <x-bladewind::dropmenu-item divider />
 
-        <x-bladewind::dropmenu-item icon="computer-desktop">
-            Your Repositories
-        </x-bladewind::dropmenu-item>
-        <x-bladewind::dropmenu-item icon="briefcase">
-            Your Projects
-        </x-bladewind::dropmenu-item>
-        <x-bladewind::dropmenu-item icon="building-office">
-            Your Organizations
-        </x-bladewind::dropmenu-item>
-        <x-bladewind::dropmenu-item icon="star">
-            Your Stars
+        <x-bladewind::dropmenu-item icon="user">
+            Your Profile
         </x-bladewind::dropmenu-item>
 
         <x-bladewind::dropmenu-item divider />
