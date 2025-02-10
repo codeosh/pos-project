@@ -39,6 +39,10 @@
             Your Profile
         </x-bladewind::dropmenu-item>
 
+        <x-bladewind::dropmenu-item icon="cog-8-tooth">
+            Settings
+        </x-bladewind::dropmenu-item>
+
         <x-bladewind::dropmenu-item divider />
 
         <x-bladewind::dropmenu-item hover="false">
