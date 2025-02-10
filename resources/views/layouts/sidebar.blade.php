@@ -2,7 +2,7 @@
 <div class="sidebar">
     <div class="titleSide-container p-3 flex justify-center flex-col items-center text-nowrap">
         <h5>BizmaTech - POS</h5>
-        <small>i World Solutions</small>
+        <small style="font-size: 0.6rem;"><span style="font-style: italic;">i</span> World Solutions</small>
     </div>
 
     <div class="sidebar-container h-screen text-nowrap">
