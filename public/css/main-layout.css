@@ -8,6 +8,7 @@
         "sidebar nav"
         "sidebar main";
     transition: grid-template-columns 0.5s ease;
+    overflow: hidden;
 }
 .body-content.collapsed {
     grid-template-columns: 0 1fr;
