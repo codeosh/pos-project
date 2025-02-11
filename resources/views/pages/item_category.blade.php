@@ -11,6 +11,21 @@
             gap: 0.75rem;
         }
 
+        .search-container {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        #searchInput {
+            width: 100%;
+        }
+
+        #addItemCategoryForm {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
         .input-group {
             flex-direction: column;
             width: 100%;
@@ -23,13 +38,10 @@
             width: 100%;
         }
 
-        .search-container {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        #searchInput {
-            width: 100%;
+        .responsive-table {
+            max-height: 32rem;
+            overflow-x: auto;
+            overflow-y: auto;
         }
     }
 </style>
@@ -45,35 +57,43 @@
             <input type="text" placeholder="Search..." class="w-52 h-10 border rounded px-2" id="searchInput">
         </div>
 
-        <!-- Input Fields & Buttons (Right) -->
-        <div class="input-group flex items-center gap-2">
-            <input type="text" class="border rounded px-2 h-10 w-40 mt-6" placeholder="Code" readonly>
-            <input type="text" class="border rounded px-2 h-10 w-72 mt-6" placeholder="Description">
-            <button class="addBtn bg-blue-500 text-white px-4 py-2 rounded w-28 mt-6">Add</button>
-            <button class="resetBtn bg-gray-500 text-white px-4 py-2 rounded w-28 mt-6">Reset</button>
-        </div>
+        <!-- Form -->
+        <form id="addItemCategoryForm" class="flex justify-end" autocomplete="off">
+            @csrf
+            <div class="input-group flex items-center gap-2">
+                <input type="text" class="border rounded px-2 h-10 w-40 mt-6" placeholder="Code" id="unitcode"
+                    name="unitcode" readonly>
+                <input type="text" class="border rounded px-2 h-10 w-72 mt-6" placeholder="Description" id="pname"
+                    name="pname">
+                <button id="addItemCategoryBtn" type="submit"
+                    class="addBtn bg-blue-500 text-white px-4 py-2 rounded w-28 mt-6">
+                    Add
+                </button>
+                <button type="reset" class="resetBtn bg-gray-500 text-white px-4 py-2 rounded w-28 mt-6">
+                    Reset
+                </button>
+            </div>
+        </form>
     </div>
 
-    <!-- Table -->
-    <div class="responsive-table w-full rounded-md shadow mt-2 overflow-x-hidden overflow-y-auto"
-        style="height: 35rem;">
-        <x-bladewind::table id="dataTable">
-            <x-slot name="header">
-                <th style="width: 12rem;">Code</th>
-                <th>Description</th>
-                <th class="text-center">Action</th>
-            </x-slot>
-            <tr>
-                <td>C1000</td>
-                <td>Item 1</td>
-                <td>Item 1</td>
-            </tr>
-            <tr>
-                <td>C1001</td>
-                <td>Item 2</td>
-                <td>Item 2</td>
-            </tr>
-        </x-bladewind::table>
+    <!-- Styled Table -->
+    <div class="responsive-table w-full rounded-md shadow mt-2 border border-gray-200"
+        style="max-height: 34rem; overflow-y: auto;">
+        <table class="w-full border-collapse">
+            <thead>
+                <tr class="bg-gray-100 text-gray-700 uppercase text-sm">
+                    <th class="px-4 py-3 text-left" style="width: 12rem;">Unit Code</th>
+                    <th class="px-4 py-3 text-left">Description</th>
+                    <th class="px-4 py-3 text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody id="itemCategoryTable" class="overflow-y-auto" style="max-height: 30rem;">
+
+            </tbody>
+        </table>
     </div>
 </div>
+
+{{-- Scripts Compiled --}}
+<script src="{{asset('js/page/item-category.js')}}"></script>
 @endsection
