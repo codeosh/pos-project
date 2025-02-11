@@ -81,7 +81,7 @@
         style="max-height: 34rem; overflow-y: auto;">
         <table class="w-full border-collapse">
             <thead>
-                <tr class="bg-gray-100 text-gray-700 uppercase text-sm">
+                <tr class="bg-white text-gray-700 shadow-md uppercase text-sm">
                     <th class="px-4 py-3 text-left" style="width: 12rem;">Unit Code</th>
                     <th class="px-4 py-3 text-left">Description</th>
                     <th class="px-4 py-3 text-center">Action</th>
