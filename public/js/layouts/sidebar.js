@@ -8,6 +8,15 @@ $(document).ready(function () {
             $(".sidebar").removeClass("active");
             $(".body-content").removeClass("collapsed");
         }
+        toggleProfileContainer();
+    }
+
+    function toggleProfileContainer() {
+        if ($(window).width() <= 768 && !$(".sidebar").hasClass("active")) {
+            $(".profile-container").hide();
+        } else {
+            $(".profile-container").show();
+        }
     }
 
     checkScreenSize();
@@ -19,5 +28,6 @@ $(document).ready(function () {
     $("#menu-bars").click(function () {
         $(".sidebar").toggleClass("active");
         $(".body-content").toggleClass("collapsed");
+        toggleProfileContainer();
     });
 });

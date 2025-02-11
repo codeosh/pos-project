@@ -132,6 +132,8 @@
 /* Main Content */
 .main-content {
     grid-area: main;
+    padding: 5px;
+    overflow: hidden;
 }
 /* End Main Content */
 
@@ -143,6 +145,33 @@
     width: 12rem;
 }
 /* End Item Category Page */
+
+input[type="text"] {
+    border-radius: 5px;
+    border: 1px solid #b2b2b2;
+}
+input[type="text"]:focus {
+    border: 1px solid #73b8fe;
+    box-shadow: 0 0 5px rgb(70, 118, 250);
+}
+
+.addBtn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #1e90ff;
+    border: 1px solid #359aff;
+    color: #fff;
+    box-shadow: 0 0 5px rgb(70, 118, 250);
+}
+
+.resetBtn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #697b8d;
+    border: 1px solid #858585;
+    color: #fff;
+    box-shadow: 0 0 5px rgb(103, 109, 124);
+}
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
