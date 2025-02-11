@@ -13,7 +13,18 @@
 
         .button-group {
             display: flex;
+            flex-direction: column;
             flex-wrap: nowrap;
+            gap: 0.5rem;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .button-group {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 0.5rem;
         }
     }
