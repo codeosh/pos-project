@@ -38,6 +38,27 @@ class ItemCatController extends Controller
         }
     }
 
+    public function update(Request $request)
+    {
+        $request->validate([
+            'unitcode' => 'required|exists:tbl_item_category,unitcode',
+            'pname' => 'required|string|max:255',
+        ]);
+
+        $category = ItemCategory::where('unitcode', $request->unitcode)->first();
+
+        if (!$category) {
+            return response()->json(['success' => false, 'message' => 'Item category not found.'], 404);
+        }
+
+        $category->update([
+            'pname' => $request->pname,
+        ]);
+
+        return response()->json(['success' => true, 'message' => 'Updated successfully!']);
+    }
+
+
     public function getNextUnitCode()
     {
         $existingCodes = ItemCategory::pluck('unitcode')->toArray();

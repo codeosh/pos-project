@@ -69,8 +69,17 @@
                     class="addBtn bg-blue-500 text-white px-4 py-2 rounded w-28 mt-6">
                     Add
                 </button>
-                <button type="reset" class="resetBtn bg-gray-500 text-white px-4 py-2 rounded w-28 mt-6">
+                <button id="saveItemCategoryBtn" type="button"
+                    class="saveBtn bg-blue-500 text-white px-4 py-2 rounded w-28 mt-6">
+                    Save
+                </button>
+                <button type="reset" id="resetButton"
+                    class="resetBtn bg-gray-500 text-white px-4 py-2 rounded w-28 mt-6">
                     Reset
+                </button>
+                <button id="clearButton" type="button"
+                    class="clearBtn bg-gray-500 text-white px-4 py-2 rounded w-28 mt-6">
+                    Clear
                 </button>
             </div>
         </form>
