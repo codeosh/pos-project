@@ -43,35 +43,23 @@
                         style="background-color: #007bff; border-color: #007bff; border-radius: 0 10px 10px 0;">
                         <i class="fa-solid fa-magnifying-glass text-white"></i>
                     </button>
-                <!-- BladeWind Button for Add New -->
-                <x-bladewind::button size="regular" class="ms-custom" data-bs-toggle="modal" data-bs-target="#addNewModal">
-                    <i class="fa-solid fa-plus me-2"></i> <!-- Font Awesome plus icon with margin to the right -->
-                    Add New
-                </x-bladewind::button>
-
-                <!-- BladeWind Button for Print (Beside Add New) -->
-                <x-bladewind::button size="regular" class="ms-custom" style="background-color:#948E8E !important;">
-                    <i class="fa-solid fa-print me-2"></i> <!-- Font Awesome print icon -->
-                    Print
-                </x-bladewind::button>
-
-                <!-- Custom CSS for Spacing -->
-                <style>
-                    .ms-custom {
-                        margin-left: 400px; /* Push "Add New" button 200px away from the search button */
-                    }
-
-                    .ms-custom + .ms-custom { /* Apply only to the second button (Print) */
-                        margin-left: 5px; /* 5px gap between "Add New" and "Print" button */
-                    }
-                </style>
+                <!-- Add New Button -->
+                    <button class="btn btn-success p-2 text-white" type="button" 
+                            style="background-color: #007bff; border-color: #007bff; border-radius: 5px; margin-left: 400px;">
+                            <i class="fa fa-plus"></i>Add New
+                    </button>
+                    <!-- Print Button -->
+                    <button class="btn btn-info p-2 text-white" type="button" 
+                        style="background-color:rgb(131, 137, 138); border-color: rgb(131, 137, 138); border-radius: 5px;">
+                        <i class="fa fa-print"></i>Print
+                    </button>
                 </div>
             </form>
         </div>
         <!-- Styled Contacts Table -->
 <div class="responsive-table w-full p-3 rounded-md shadow border border-gray-200" style="height:85vh; overflow-y: auto;">
 <div style="max-height: 75vh; overflow-y: auto;">
-    <table class="w-full border-collapse">
+    <table class="w-full border-collapse bg-white">
         <thead>
         <tr class="bg-white text-gray-700 shadow-md uppercase text-sm">
           <th class="px-4 py-3 text-left" style="width: 33.33%;">ID</th>
