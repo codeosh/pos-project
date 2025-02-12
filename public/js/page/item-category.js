@@ -111,4 +111,41 @@ $(document).ready(function () {
             }
         });
     });
+
+    $(document).on("click", ".resetBtn", function (e) {
+        e.preventDefault();
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "This will delete ALL item categories!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Yes, reset it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "DELETE",
+                    url: "/Item-Category/Reset",
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                            "content"
+                        ),
+                    },
+                    success: function (response) {
+                        toastr.success(response.message);
+                        $("#itemCategoryTable").html("");
+                        fetchNextUnitCode();
+                    },
+                    error: function (xhr) {
+                        toastr.error(
+                            xhr.responseJSON?.message ||
+                                "An error occurred while resetting."
+                        );
+                    },
+                });
+            }
+        });
+    });
 });

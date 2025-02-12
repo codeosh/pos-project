@@ -86,7 +86,6 @@ class ItemCatController extends Controller
         }
     }
 
-
     public function destroy(Request $request, $unitcode)
     {
         $category = ItemCategory::where('unitcode', $unitcode)->first();
@@ -98,5 +97,20 @@ class ItemCatController extends Controller
         $category->delete();
 
         return response()->json(['success' => true, 'message' => 'Item category deleted successfully.']);
+    }
+
+    public function resetItemCategories()
+    {
+        try {
+            ItemCategory::truncate();
+
+            return response()->json(['success' => true, 'message' => 'All item categories have been deleted.']);
+        } catch (Exception $error) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while resetting.',
+                'error_details' => $error->getMessage(),
+            ], 500);
+        }
     }
 }
