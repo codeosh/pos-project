@@ -99,7 +99,9 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on("click", ".delete-btn", function () {
+    $(document).on("click", ".delete-btn", function (e) {
+        e.stopPropagation(); // ⬅️ This prevents the row click event from firing
+
         let unitcode = $(this).data("id");
         let row = $(`#row-${unitcode}`);
 
@@ -126,7 +128,12 @@ $(document).ready(function () {
                         row.fadeOut(300, function () {
                             $(this).remove();
                         });
-                        fetchNextUnitCode();
+
+                        $("#clearButton").click();
+                        $("#addItemCategoryBtn").show();
+                        $("#saveItemCategoryBtn").hide();
+                        $("#resetButton").show();
+                        $("#clearButton").hide();
                     },
                     error: function (xhr) {
                         toastr.error(
@@ -224,9 +231,14 @@ $(document).ready(function () {
             success: function (response) {
                 toastr.success(response.message);
                 fetchItemCategories();
+                fetchNextUnitCode();
+                $("#pname").val("");
 
                 $("#addItemCategoryBtn").show();
                 $("#saveItemCategoryBtn").hide();
+
+                $("#resetButton").show();
+                $("#clearButton").hide();
             },
             error: function (xhr) {
                 toastr.error(
