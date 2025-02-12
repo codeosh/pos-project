@@ -225,6 +225,14 @@ td {
     max-width: 200px;
 }
 
+.dropdown {
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid rgb(212, 212, 212);
+    font-family: inherit;
+    color: #888;
+}
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .item-categoryInput.code-input {
