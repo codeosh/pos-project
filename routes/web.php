@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Page\ItemCatController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,13 @@ Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::get('/admin-dashboard', function () {
         return view('dashboard.admin_dashboard');
     })->name('admin.dashboard');
+
+    // Item-Category Routes
+    Route::post('/Item-Category/Page/Store', [ItemCatController::class, 'store'])->name('item-category.store');
+    Route::get('/Item-Category/NextCode', [ItemCatController::class, 'getNextUnitCode']);
+    Route::get('/Item-Category/Fetch', [ItemCatController::class, 'fetchItemCategories']);
+    Route::delete('/Item-Category/Delete/{unitcode}', [ItemCatController::class, 'destroy']);
+    Route::delete('/Item-Category/Reset', [ItemCatController::class, 'resetItemCategories']);
 });
 
 // User routes

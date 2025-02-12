@@ -46,7 +46,8 @@
         <x-bladewind::dropmenu-item divider />
 
         <x-bladewind::dropmenu-item hover="false">
-            <x-bladewind.button color="purple" radius="small" size="small" class="w-full" id="logoutBtn">
+            <x-bladewind.button icon="arrow-left-start-on-rectangle" color="purple" radius="small" size="small"
+                class="w-full" id="logoutBtn">
                 Sign Out
             </x-bladewind.button>
         </x-bladewind::dropmenu-item>
