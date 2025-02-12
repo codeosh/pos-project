@@ -39,7 +39,7 @@
         }
 
         .responsive-table {
-            max-height: 32rem;
+            max-height: 38rem;
             overflow-x: auto;
             overflow-y: auto;
         }
@@ -50,7 +50,7 @@
 <div class="m-3 p-5 rounded-md shadow bg-white overflow-hidden" style="height: 100vh;">
 
     <!-- Inputs & Search Bar -->
-    <div class="input-container flex justify-between items-center w-full gap-4">
+    <div class="input-container flex justify-between items-center w-full gap-4 mb-1">
         <!-- Search Input (Left) -->
         <div class="search-container flex flex-col">
             <label for="searchInput" class="text-gray-500 font-medium">Search</label>
@@ -77,8 +77,8 @@
     </div>
 
     <!-- Styled Table -->
-    <div class="responsive-table w-full rounded-md shadow mt-2 border border-gray-200"
-        style="max-height: 34rem; overflow-y: auto;">
+    <div class="responsive-table w-full p-3 rounded-md shadow border border-gray-200"
+        style="height:85vh; overflow-y: auto;">
         <table class="w-full border-collapse">
             <thead>
                 <tr class="bg-white text-gray-700 shadow-md uppercase text-sm">
@@ -87,7 +87,7 @@
                     <th class="px-4 py-3 text-center">Action</th>
                 </tr>
             </thead>
-            <tbody id="itemCategoryTable" class="overflow-y-auto" style="max-height: 30rem;">
+            <tbody id="itemCategoryTable" class="overflow-y-auto" style="height: 32rem;">
 
             </tbody>
         </table>

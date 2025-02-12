@@ -73,7 +73,7 @@ class ItemCatController extends Controller
     {
         try {
             $categories = ItemCategory::select('unitcode', 'pname')
-                ->orderBy('unitcode')
+                ->orderBy('created_at', 'DESC')
                 ->get();
 
             return response()->json(['success' => true, 'categories' => $categories]);
@@ -84,5 +84,19 @@ class ItemCatController extends Controller
                 'error_details' => $error->getMessage(),
             ], 500);
         }
+    }
+
+
+    public function destroy(Request $request, $unitcode)
+    {
+        $category = ItemCategory::where('unitcode', $unitcode)->first();
+
+        if (!$category) {
+            return response()->json(['success' => false, 'message' => 'Item category not found.'], 404);
+        }
+
+        $category->delete();
+
+        return response()->json(['success' => true, 'message' => 'Item category deleted successfully.']);
     }
 }

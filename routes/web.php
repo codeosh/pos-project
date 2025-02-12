@@ -21,6 +21,7 @@ Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::post('/Item-Category/Page/Store', [ItemCatController::class, 'store'])->name('item-category.store');
     Route::get('/Item-Category/NextCode', [ItemCatController::class, 'getNextUnitCode']);
     Route::get('/Item-Category/Fetch', [ItemCatController::class, 'fetchItemCategories']);
+    Route::delete('/Item-Category/Delete/{unitcode}', [ItemCatController::class, 'destroy']);
 });
 
 // User routes
