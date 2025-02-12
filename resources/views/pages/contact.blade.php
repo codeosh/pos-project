@@ -3,6 +3,8 @@
 
 @section('title', 'Contacts - POS')
 
+<link rel="stylesheet" href="{{asset('css/contact_page.css')}}">
+
 @section('content')
 <!-- Search Bar with Two Dropdowns -->
 <div class="container-fluid mt-4">

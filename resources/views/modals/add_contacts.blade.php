@@ -3,7 +3,7 @@
 
     <form method="post" action="" class="profile-form">
         @csrf
-        <b class="mt-0">Edit Your Profile</b>
+        <b class="mt-0">Add Contact</b>
         <div class="grid grid-cols-2 gap-4 mt-6">
             <x-bladewind::input required="true" name="first_name" error_message="Please enter your first name"
                 label="First name" />
