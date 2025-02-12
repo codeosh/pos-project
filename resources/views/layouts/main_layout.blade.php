@@ -43,7 +43,6 @@
         </div>
 
         {{-- Scripts Compiled --}}
-        <script src="{{asset('js/layouts/loding-spinner.js')}}"></script>
         <script src="{{asset('js/layouts/sidebar.js')}}"></script>
         <script src="{{asset('js/auth/logout.js')}}"></script>
     </body>
