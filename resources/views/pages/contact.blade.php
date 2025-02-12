@@ -41,13 +41,7 @@
                     <input type="text" class="form-control border-0 p-3" placeholder="Search contacts..."
                         aria-label="Search contacts" aria-describedby="search-button"
                         style="background-color: #ffffff; border: 1px solid #948E8E; border-radius: 5px 0 0 5px;">
-
-                    <!-- Search Button (Aligned) -->
-                    <button class="btn btn-primary p-3" type="submit" id="search-button"
-                        style="background-color: #007bff; border-color: #007bff; border-radius: 0 10px 10px 0;">
-                        <i class="fa-solid fa-magnifying-glass text-white"></i>
-                    </button>
-                    <x-bladewind::button onclick="showModal('add_contact_modal')">
+                    <x-bladewind::button onclick="showModal('add_contact_modal')" style="margin-left: 400px;">
                         Add New
                     </x-bladewind::button>
 
@@ -56,6 +50,10 @@
                         style="background-color:rgb(131, 137, 138); border-color: rgb(131, 137, 138); border-radius: 5px;">
                         <i class="fa fa-print"></i>Print
                     </button>
+                    <x-bladewind::button>
+                        Import
+                    </x-bladewind::button>
+
                 </div>
             </form>
         </div>

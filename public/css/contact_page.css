@@ -1,7 +1,8 @@
 .dropdown {
-    width: 200px;
+    width: 300px;
     border-radius: 5px;
     border: 1px solid rgb(212, 212, 212);
     font-family: inherit;
-    color: #888;
+    color: #797979;
+    height: 45px;
 }
