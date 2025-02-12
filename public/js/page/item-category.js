@@ -100,7 +100,7 @@ $(document).ready(function () {
     });
 
     $(document).on("click", ".delete-btn", function (e) {
-        e.stopPropagation(); // ⬅️ This prevents the row click event from firing
+        e.stopPropagation();
 
         let unitcode = $(this).data("id");
         let row = $(`#row-${unitcode}`);
@@ -171,6 +171,7 @@ $(document).ready(function () {
                         toastr.success(response.message);
                         $("#itemCategoryTable").html("");
                         fetchNextUnitCode();
+                        fetchItemCategories();
                     },
                     error: function (xhr) {
                         toastr.error(
