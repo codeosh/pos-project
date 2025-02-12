@@ -44,85 +44,19 @@
                         <i class="fa-solid fa-magnifying-glass text-white"></i>
                     </button>
    <!-- Add New Button -->
-<x-bladewind::button onclick="showModal('omg-modal')">
-    Add New
-</x-bladewind::button>
+   <x-bladewind::button onclick="showModal('omg-modal')">
+                    Add New
+                </x-bladewind::button>
 
-<x-bladewind::modal size="omg" title="Add Contact" name="omg-modal">
-    <!-- Form inside Modal -->
-    <form>
-        <!-- First Row: SeQ-Code, F1 ID Number, ID -->
-        <div class="form-row" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-            <!-- SeQ-Code Input -->
-            <div class="mb-3">
-                <!-- <label for="seqCode" class="form-label">SeQ-Code</label> -->
-                <input type="text" class="form-control" id="seqCode" placeholder="Enter SeQ-Code">
-            </div>
-
-            <!-- F1 ID Number Input -->
-            <div class="mb-3">
-                <!-- <label for="f1IdNumber" class="form-label">[F1] ID Number</label> -->
-                <input type="text" class="form-control" id="f1IdNumber" placeholder="Enter [F1] ID Number">
-            </div>
-
-            <!-- ID Input -->
-            <div class="mb-3">
-                <label for="id" class="form-label">ID</label>
-                <input type="text" class="form-control" id="id" placeholder="Enter ID">
-            </div>
-        </div>
-
-        <!-- Second Row: Customer/Consignee Name, Contact Person Group, VAT TIN -->
-        <div class="form-row" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-            <!-- Customer/Consignee Name Input -->
-            <div class="mb-3">
-                <label for="customerName" class="form-label">Customer/Consignee Name</label>
-                <input type="text" class="form-control" id="customerName" placeholder="Enter Customer/Consignee Name">
-            </div>
-
-            <!-- Contact Person Group Input -->
-            <div class="mb-3">
-                <label for="contactGroup" class="form-label">Contact Person Group</label>
-                <input type="text" class="form-control" id="contactGroup" placeholder="Enter Contact Person Group">
-            </div>
-
-            <!-- VAT TIN (NOS.) Input -->
-            <div class="mb-3">
-                <label for="vatTin" class="form-label">VAT TIN (NOS.)</label>
-                <input type="text" class="form-control" id="vatTin" placeholder="Enter VAT TIN">
-            </div>
-        </div>
-
-        <!-- Third Row: Terms of Payment, Address, Contact Number -->
-        <div class="form-row" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-            <!-- Terms of Payment Input -->
-            <div class="mb-3">
-                <label for="termsPayment" class="form-label">Terms of Payment</label>
-                <input type="text" class="form-control" id="termsPayment" placeholder="Enter Terms of Payment">
-            </div>
-
-            <!-- Address Input -->
-            <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" id="address" placeholder="Enter Address">
-            </div>
-
-            <!-- Contact Number Input -->
-            <div class="mb-3">
-                <!-- <label for="contactNumber" class="form-label">Contact Number</label> -->
-                <input type="text" class="form-control" id="contactNumber" placeholder="Enter Contact Number">
-            </div>
-        </div>
-
-        <!-- Full Width Row: Note/Comment -->
-        <div class="form-row">
-            <div class="mb-3" style="width:100%;">
-                <label for="note" class="form-label"></label>
-                <textarea class="form-control" id="note" rows="3" placeholder="Enter Note or Comment"></textarea>
-            </div>
-        </div>  
-    </form>
-</x-bladewind::modal>
+                <x-bladewind::modal
+                    size="omg"
+                    title="Full Width Modal"
+                    name="omg-modal">
+                    I am the full width modal. My nickname is OMG.
+                    I take up the entire screen. I do not know why
+                    you will need a modal like this but well, like they say,
+                    it is better to have and not use that need and not have.
+                </x-bladewind::modal>
                     <!-- Print Button -->
                     <button class="btn btn-info p-2 text-white" type="button" 
                         style="background-color:rgb(131, 137, 138); border-color: rgb(131, 137, 138); border-radius: 5px;">
