@@ -23,6 +23,7 @@ Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::get('/Item-Category/Fetch', [ItemCatController::class, 'fetchItemCategories']);
     Route::delete('/Item-Category/Delete/{unitcode}', [ItemCatController::class, 'destroy']);
     Route::delete('/Item-Category/Reset', [ItemCatController::class, 'resetItemCategories']);
+    Route::put('/Item-Category/Update', [ItemCatController::class, 'update']);
 });
 
 // User routes

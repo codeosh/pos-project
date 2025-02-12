@@ -139,7 +139,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on("click", ".resetBtn", function (e) {
+    $(document).on("click", "#resetButton", function (e) {
         e.preventDefault();
 
         Swal.fire({
@@ -173,6 +173,67 @@ $(document).ready(function () {
                     },
                 });
             }
+        });
+    });
+
+    $("#saveItemCategoryBtn").hide();
+    $("#clearButton").hide();
+
+    $(document).on("click", "#itemCategoryTable tr", function () {
+        let unitCode = $(this).find("td:eq(0)").text().trim();
+        let description = $(this).find("td:eq(1)").text().trim();
+
+        $("#unitcode").val(unitCode);
+        $("#pname").val(description);
+
+        $("#addItemCategoryBtn").hide();
+        $("#saveItemCategoryBtn").show();
+
+        $("#resetButton").hide();
+        $("#clearButton").show();
+    });
+
+    $("#clearButton").on("click", function (e) {
+        e.preventDefault();
+        fetchNextUnitCode();
+        $("#pname").val("");
+        $("#addItemCategoryBtn").show();
+        $("#saveItemCategoryBtn").hide();
+
+        $("#resetButton").show();
+        $("#clearButton").hide();
+    });
+
+    $("#saveItemCategoryBtn").on("click", function () {
+        let unitcode = $("#unitcode").val().trim();
+        let pname = $("#pname").val().trim();
+
+        if (pname === "") {
+            toastr.error("Description cannot be empty.");
+            return;
+        }
+
+        $.ajax({
+            type: "PUT",
+            url: "/Item-Category/Update",
+            data: {
+                unitcode: unitcode,
+                pname: pname,
+                _token: $('meta[name="csrf-token"]').attr("content"),
+            },
+            success: function (response) {
+                toastr.success(response.message);
+                fetchItemCategories();
+
+                $("#addItemCategoryBtn").show();
+                $("#saveItemCategoryBtn").hide();
+            },
+            error: function (xhr) {
+                toastr.error(
+                    xhr.responseJSON?.message ||
+                        "An error occurred while updating."
+                );
+            },
         });
     });
 });
