@@ -87,7 +87,7 @@
                     <th class="px-4 py-3 text-center">Action</th>
                 </tr>
             </thead>
-            <tbody id="itemCategoryTable" class="overflow-y-auto" style="height: 32rem;">
+            <tbody id="itemCategoryTable" class="overflow-y-auto" style="height: 5rem;">
 
             </tbody>
         </table>

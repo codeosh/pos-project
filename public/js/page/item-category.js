@@ -18,8 +18,9 @@ $(document).ready(function () {
             type: "GET",
             url: "/Item-Category/Fetch",
             success: function (response) {
+                let rows = "";
+
                 if (response.success && response.categories.length > 0) {
-                    let rows = "";
                     response.categories.forEach((category) => {
                         rows += `
                     <tr id="row-${category.unitcode}" class="even:bg-gray-50 hover:bg-gray-100 transition">
@@ -33,11 +34,18 @@ $(document).ready(function () {
                         </td>
                     </tr>`;
                     });
-
-                    $("#itemCategoryTable").html(rows);
                 } else {
+                    rows = `
+                <tr>
+                    <td colspan="3" class="px-4 py-3 text-center text-gray-500 italic">
+                        No item categories found.
+                    </td>
+                </tr>`;
+
                     toastr.warning("No item categories found.");
                 }
+
+                $("#itemCategoryTable").html(rows);
             },
             error: function () {
                 toastr.error(
@@ -46,9 +54,27 @@ $(document).ready(function () {
             },
         });
     }
-
     fetchNextUnitCode();
     fetchItemCategories();
+
+    // Search function
+    $("#searchInput").on("keyup", function () {
+        let searchValue = $(this).val().toLowerCase();
+
+        $("#itemCategoryTable tr").each(function () {
+            let unitCode = $(this).find("td:eq(0)").text().toLowerCase();
+            let description = $(this).find("td:eq(1)").text().toLowerCase();
+
+            if (
+                unitCode.includes(searchValue) ||
+                description.includes(searchValue)
+            ) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
 
     $("#addItemCategoryForm").on("submit", function (e) {
         e.preventDefault();
@@ -100,6 +126,7 @@ $(document).ready(function () {
                         row.fadeOut(300, function () {
                             $(this).remove();
                         });
+                        fetchNextUnitCode();
                     },
                     error: function (xhr) {
                         toastr.error(

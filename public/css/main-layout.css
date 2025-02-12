@@ -201,6 +201,13 @@ input[type="text"]:focus {
     background-color: #f1f1f1;
 }
 
+td {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 200px;
+}
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .item-categoryInput.code-input {
