@@ -33,7 +33,6 @@ class ItemCatController extends Controller
                 'success' => false,
                 'message' => 'An error occurred while Adding.',
                 'error_details' => $error->getMessage(),
-                'stack_trace' => $error->getTraceAsString(),
             ], 500);
         }
     }
