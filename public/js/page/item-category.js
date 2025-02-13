@@ -23,10 +23,10 @@ $(document).ready(function () {
                 if (response.success && response.categories.length > 0) {
                     response.categories.forEach((category) => {
                         rows += `
-                    <tr id="row-${category.unitcode}" class="even:bg-gray-50 hover:bg-gray-100 transition">
-                        <td class="px-2 py-2 text-gray-700 border-b border-gray-300">${category.unitcode}</td>
-                        <td class="px-2 py-2 text-gray-700 border-b border-gray-300">${category.pname}</td>
-                        <td class="px-2 py-2 text-center border-b border-gray-300">
+                    <tr id="row-${category.unitcode}">
+                        <td>${category.unitcode}</td>
+                        <td>${category.pname}</td>
+                        <td>
                             <button class="delete-btn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition" 
                                 data-id="${category.unitcode}">
                                 Delete

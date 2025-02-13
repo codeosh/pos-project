@@ -37,12 +37,6 @@
             margin-top: 0;
             width: 100%;
         }
-
-        .responsive-table {
-            max-height: 38rem;
-            overflow-x: auto;
-            overflow-y: auto;
-        }
     }
 </style>
 
@@ -85,8 +79,23 @@
         </form>
     </div>
 
-    <!-- Styled Table -->
-    <div class="responsive-table w-full p-3 rounded-md shadow border border-gray-200"
+    <div class="table-container shadow">
+        <div class="table-wrapper shadow-md">
+            <table class="table-responsive">
+                <thead class="shadow">
+                    <th>Unit Code</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </thead>
+                <tbody id="itemCategoryTable" class="overflow-y-auto" style="height: 5rem;">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    {{-- <div class="responsive-table w-full p-3 rounded-md shadow border border-gray-200"
         style="height:85vh; overflow-y: auto;">
         <table class="w-full border-collapse">
             <thead>
@@ -96,11 +105,11 @@
                     <th class="px-4 py-3 text-center">Action</th>
                 </tr>
             </thead>
-            <tbody id="itemCategoryTable" class="overflow-y-auto" style="height: 5rem;">
+            <tbody id="itemCategoryTable">
 
             </tbody>
         </table>
-    </div>
+    </div> --}}
 </div>
 
 {{-- Scripts Compiled --}}

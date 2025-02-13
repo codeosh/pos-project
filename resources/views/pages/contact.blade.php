@@ -49,6 +49,27 @@
     </div>
 </div>
 
+<div class="table-container shadow">
+    <div class="table-wrapper">
+        <table class="table-responsive">
+            <thead class="shadow">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A1000</td>
+                    <td>Sample Name</td>
+                    <td>
+                        <x-bladewind.button icon="eye" size="tiny" class="w-32">View</x-bladewind.button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 {{-- Modal Section --}}
 @include('modals.add_contacts')
 @endsection
