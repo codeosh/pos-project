@@ -3,10 +3,8 @@
 
 @section('title', 'Contacts - POS')
 
-<link rel="stylesheet" href="{{asset('css/contact_page.css')}}">
-
 @section('content')
-<div class="input-container shadow-md p-3 flex items-center">
+<div class="input-container shadow-md p-3 flex items-center bg-white rounded">
     <div class="input-container w-full flex items-center">
         <div class="relative w-60">
             <x-bladewind.input class="pl-10 h-10" placeholder="Search..." />
@@ -34,17 +32,18 @@
             <div class="w-36 ms-1">
                 <select class="dropdown h-10">
                     <option selected>Sort By</option>
-                    <option value="1">Default</option>
-                    <option value="2">Alphabetical</option>
-                    <option value="3">Ascending</option>
-                    <option value="4">Descending</option>
+                    <option value="Default">Default</option>
+                    <option value="Alphabetical">Alphabetical</option>
+                    <option value="Ascending">Ascending</option>
+                    <option value="Descending">Descending</option>
                 </select>
             </div>
         </div>
 
         <div class="button-container flex justify-end gap-1">
-            <x-bladewind.button icon="plus" size="tiny" class="w-32">Add New</x-bladewind.button>
-            <x-bladewind.button icon="printer" size="tiny" class="w-32">Print</x-bladewind.button>
+            <x-bladewind.button icon="plus" size="small" class="w-32" onclick="showModal('add_contact_modal')">Add New
+            </x-bladewind.button>
+            <x-bladewind.button icon="printer" size="small" color="gray" class="w-32">Print</x-bladewind.button>
         </div>
     </div>
 </div>

@@ -1,5 +1,16 @@
 /* public\css\table.css */
 
+/* Dropdown Design */
+.dropdown {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgb(179, 179, 179);
+    font-family: inherit;
+    color: #797979;
+    font-size: 0.85rem;
+}
+/* End Dropdown Design */
+
 /* Table Design */
 .table-container {
     width: 100%;
