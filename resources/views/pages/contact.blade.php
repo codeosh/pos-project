@@ -53,9 +53,9 @@
     <div class="table-wrapper">
         <table class="table-responsive">
             <thead class="shadow">
-                <th>ID</th>
+                <th style="width: 12rem;">ID</th>
                 <th>Name</th>
-                <th>Action</th>
+                <th style="width: 25rem;">Action</th>
             </thead>
             <tbody>
                 <tr>
@@ -63,6 +63,8 @@
                     <td>Sample Name</td>
                     <td>
                         <x-bladewind.button icon="eye" size="tiny" class="w-32">View</x-bladewind.button>
+                        <x-bladewind.button icon="trash" size="tiny" class="w-32" color="red">Delete
+                        </x-bladewind.button>
                     </td>
                 </tr>
             </tbody>
