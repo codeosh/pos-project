@@ -1,5 +1,5 @@
-<x-bladewind::modal backdrop_can_close="false" name="add_contact_modal" ok_button_label="" close_after_action="true"
-    size="omg" title="Add Contact" show_close_icon="true">
+<x-bladewind::modal backdrop_can_close="false" name="add_contact_modal" ok_button_label="" size="omg"
+    title="Add Contact" show_close_icon="true">
 
     <form id="addContactForm" autocomplete="off">
         @csrf
@@ -10,12 +10,12 @@
                 <x-bladewind.input label="ID" readonly="true" />
             </div>
             <div class="block">
-                <x-bladewind.input label="Customer/Consignee Name" />
+                <x-bladewind.input label="Customer/Consignee Name" required="true" />
             </div>
         </div>
 
         <div class="grid grid-cols-1 mb-3">
-            <x-bladewind.input label="Contact Person" />
+            <x-bladewind.input label="Contact Person" required="true" />
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
