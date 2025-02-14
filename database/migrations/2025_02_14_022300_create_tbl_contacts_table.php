@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('group')->nullable();
             $table->string('tin')->nullable();
             $table->string('address')->nullable();
-            $table->integer('contact')->nullable();
+            $table->bigInteger('contact')->nullable();
             $table->longText('comment')->nullable();
             $table->timestamps();
         });

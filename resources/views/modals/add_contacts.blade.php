@@ -4,17 +4,17 @@
         @csrf
         <div class="grid grid-cols-2 gap-2 mb-3">
             <div class="flex gap-1">
-                <x-bladewind.input label="SeQ-Code" readonly="true" />
-                <x-bladewind.input label="ID Number" readonly="true" />
-                <x-bladewind.input label="ID" readonly="true" />
+                <x-bladewind.input label="SeQ-Code" name="seqcode" id="seqcode" readonly="true" />
+                <x-bladewind.input label="ID number" name="idnum" id="idnum" readonly="true" />
+                <x-bladewind.input label="ID" name="idcode" id="idcode" readonly="true" />
             </div>
             <div class="block">
-                <x-bladewind.input label="Customer/Consignee Name" />
+                <x-bladewind.input label="Customer/Consignee Name" name="consignee" id="consignee" />
             </div>
         </div>
 
         <div class="grid grid-cols-1 mb-3">
-            <x-bladewind.input label="Contact Person" />
+            <x-bladewind.input label="Contact Person" name="contactperson" id="contactperson" />
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
@@ -26,7 +26,7 @@
                     <option value="FRIENDS">FRIENDS</option>
                     <option value="UNSPECIFIED">UNSPECIFIED</option>
                 </select>
-                <x-bladewind.input label="VAT TIN (NOS.)" />
+                <x-bladewind.input label="VAT TIN (NOS.)" name="tin" id="tin" />
             </div>
 
             <!-- Terms of Payment Dropdown -->
@@ -60,17 +60,18 @@
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
-            <x-bladewind.input label="Address" />
-            <x-bladewind.input label="Contact No." numeric="true" show_error_inline="true" />
+            <x-bladewind.input label="Address" name="contactaddress" id="contactaddress" />
+            <x-bladewind.input label="Contact No." name="contactnum" id="contactnum" numeric="true"
+                show_error_inline="true" />
         </div>
 
         <div class="grid grid-cols-1">
-            <x-bladewind::textarea placeholder="Comment" />
+            <x-bladewind::textarea placeholder="Comment" name="contactcomment" id="contactcomment" />
         </div>
         <div class="flex justify-end gap-2">
+            <x-bladewind.button can_submit="true" size="tiny" class="w-44">Add</x-bladewind.button>
             <x-bladewind.button size="tiny" color="gray" onclick="closeContactModal()" class="w-44">Close
             </x-bladewind.button>
-            <x-bladewind.button can_submit="true" size="tiny" class="w-44">Add</x-bladewind.button>
         </div>
     </form>
 
