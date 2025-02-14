@@ -28,6 +28,7 @@
                 </select>
                 <x-bladewind.input label="VAT TIN (NOS.)" />
             </div>
+
             <!-- Terms of Payment Dropdown -->
             <div class="relative">
                 <button id="termsDropdownBtn" type="button" class="dropdown bg-white border px-3 py-3 w-full text-left">
@@ -48,11 +49,11 @@
                     <label class="block text-sm font-medium mt-2">Days</label>
                     <select name="dropDayPayment" id="dropDayPayment" class="dropdown w-full">
                         <option value="">Select Days</option>
-                        <option value="Immediate Payment">Immediate Payment</option>
-                        <option value="7 Days">7 Days</option>
-                        <option value="15 Days">15 Days</option>
+                        <option value="OnSpot">OnSpot</option>
+                        <option value="BDO">BDO</option>
+                        <option value="LBC">LBC</option>
                         <option value="30 Days">30 Days</option>
-                        <option value="Custom">Custom</option>
+                        <option value="Cash">Cash</option>
                     </select>
                 </div>
             </div>
