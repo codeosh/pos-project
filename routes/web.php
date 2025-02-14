@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Page\ContactController;
 use App\Http\Controllers\Page\ItemCatController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,10 @@ Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::delete('/Item-Category/Delete/{unitcode}', [ItemCatController::class, 'destroy']);
     Route::delete('/Item-Category/Reset', [ItemCatController::class, 'resetItemCategories']);
     Route::put('/Item-Category/Update', [ItemCatController::class, 'update']);
+
+    // Contact Page Routes
+    Route::post('/Contact/Page/Store', [ContactController::class, 'store']);
+    Route::get('/Contact/NextCode', [ContactController::class, 'getNextUnitCode']);
 });
 
 // User routes

@@ -35,4 +35,44 @@ $(document).ready(function () {
     }
 
     $("#dropTypePayment, #dropDayPayment").on("change", updateTermsButtonText);
+
+    function fetchNextUnitCode() {
+        $.ajax({
+            type: "GET",
+            url: "/Contact/NextCode",
+            success: function (response) {
+                $("#seqcode").val(response.unitcode);
+                $("#idnum").val(response.unitcode);
+                $("#idcode").val(response.unitcode);
+            },
+            error: function () {
+                toastr.error("Failed to fetch unit code.");
+            },
+        });
+    }
+
+    fetchNextUnitCode();
+
+    $("#addContactForm").on("submit", function (e) {
+        e.preventDefault();
+
+        const formData = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "/Contact/Page/Store",
+            data: formData,
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+            success: function (response) {
+                toastr.success("Added successfully!");
+                $("#addContactForm")[0].reset();
+                fetchNextUnitCode();
+            },
+            error: function (xhr) {
+                toastr.error(xhr.responseJSON?.message || "An error occurred.");
+            },
+        });
+    });
 });
