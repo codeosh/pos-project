@@ -1,5 +1,4 @@
-<x-bladewind::modal backdrop_can_close="false" name="add_contact_modal" ok_button_label="" size="omg"
-    title="Add Contact" show_close_icon="true">
+<x-bladewind.modal name="add_contact_modal" size="xl" title="Add Contact" show_action_buttons="false">
 
     <form id="addContactForm" autocomplete="off">
         @csrf
@@ -10,12 +9,12 @@
                 <x-bladewind.input label="ID" readonly="true" />
             </div>
             <div class="block">
-                <x-bladewind.input label="Customer/Consignee Name" required="true" />
+                <x-bladewind.input label="Customer/Consignee Name" />
             </div>
         </div>
 
         <div class="grid grid-cols-1 mb-3">
-            <x-bladewind.input label="Contact Person" required="true" />
+            <x-bladewind.input label="Contact Person" />
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
@@ -29,22 +28,50 @@
                 </select>
                 <x-bladewind.input label="VAT TIN (NOS.)" />
             </div>
-            <x-bladewind.input label="Terms of Payment" />
+            <!-- Terms of Payment Dropdown -->
+            <div class="relative">
+                <button id="termsDropdownBtn" type="button" class="dropdown bg-white border px-3 py-3 w-full text-left">
+                    Terms of Payment
+                </button>
+                <div id="termsDropdownMenu" class="absolute hidden bg-white border w-full mt-1 rounded shadow p-2"
+                    style="z-index: 1000;">
+                    <label class="block text-sm font-medium">Type</label>
+                    <select name="dropTypePayment" id="dropTypePayment" class="dropdown w-full">
+                        <option value="">Select Type</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Gcash">Gcash</option>
+                        <option value="Bank2Bank">Bank2Bank</option>
+                        <option value="Check">Check</option>
+                        <option value="OnSpot">OnSpot</option>
+                    </select>
+
+                    <label class="block text-sm font-medium mt-2">Days</label>
+                    <select name="dropDayPayment" id="dropDayPayment" class="dropdown w-full">
+                        <option value="">Select Days</option>
+                        <option value="Immediate Payment">Immediate Payment</option>
+                        <option value="7 Days">7 Days</option>
+                        <option value="15 Days">15 Days</option>
+                        <option value="30 Days">30 Days</option>
+                        <option value="Custom">Custom</option>
+                    </select>
+                </div>
+            </div>
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
             <x-bladewind.input label="Address" />
-            <x-bladewind.input label="Contact No." numeric="true" max="11" error_message="Maximum value must be 12"
-                show_error_inline="true" />
+            <x-bladewind.input label="Contact No." numeric="true" show_error_inline="true" />
         </div>
 
         <div class="grid grid-cols-1">
             <x-bladewind::textarea placeholder="Comment" />
         </div>
-        <div class="flex justify-end">
-            <x-bladewind.button can_submit="true" class="w-44">Add</x-bladewind.button>
+        <div class="flex justify-end gap-2">
+            <x-bladewind.button size="tiny" color="gray" onclick="closeContactModal()" class="w-44">Close
+            </x-bladewind.button>
+            <x-bladewind.button can_submit="true" size="tiny" class="w-44">Add</x-bladewind.button>
         </div>
     </form>
 
 
-</x-bladewind::modal>
+</x-bladewind.modal>

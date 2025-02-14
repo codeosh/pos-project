@@ -71,6 +71,8 @@
     </div>
 </div>
 
+{{-- Scripts Compiled --}}
+<script src="{{asset('js/page/contact-page.js')}}"></script>
 {{-- Modal Section --}}
 @include('modals.add_contacts')
 @endsection
