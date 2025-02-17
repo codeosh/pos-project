@@ -10,6 +10,18 @@ use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
+    public function index()
+    {
+        $contacts = Contact::all();
+        return view('pages.contact', compact('contacts'));
+    }
+
+    public function refreshTable()
+    {
+        $contacts = Contact::all();
+        return view('partials.contact_table', compact('contacts'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([

@@ -12,23 +12,24 @@ Route::get('/', function () {
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+// Item-Category Routes
+Route::post('/Item-Category/Page/Store', [ItemCatController::class, 'store'])->name('item-category.store');
+Route::get('/Item-Category/NextCode', [ItemCatController::class, 'getNextUnitCode']);
+Route::get('/Item-Category/Fetch', [ItemCatController::class, 'fetchItemCategories']);
+Route::delete('/Item-Category/Delete/{unitcode}', [ItemCatController::class, 'destroy']);
+Route::delete('/Item-Category/Reset', [ItemCatController::class, 'resetItemCategories']);
+Route::put('/Item-Category/Update', [ItemCatController::class, 'update']);
+
+// Contact Page Routes
+Route::post('/Contact/Page/Store', [ContactController::class, 'store']);
+Route::get('/Contact/NextCode', [ContactController::class, 'getNextUnitCode']);
+Route::get('/contacts/table', [ContactController::class, 'refreshTable'])->name('contacts.table');
+
 // Admin routes
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::get('/admin-dashboard', function () {
         return view('dashboard.admin_dashboard');
     })->name('admin.dashboard');
-
-    // Item-Category Routes
-    Route::post('/Item-Category/Page/Store', [ItemCatController::class, 'store'])->name('item-category.store');
-    Route::get('/Item-Category/NextCode', [ItemCatController::class, 'getNextUnitCode']);
-    Route::get('/Item-Category/Fetch', [ItemCatController::class, 'fetchItemCategories']);
-    Route::delete('/Item-Category/Delete/{unitcode}', [ItemCatController::class, 'destroy']);
-    Route::delete('/Item-Category/Reset', [ItemCatController::class, 'resetItemCategories']);
-    Route::put('/Item-Category/Update', [ItemCatController::class, 'update']);
-
-    // Contact Page Routes
-    Route::post('/Contact/Page/Store', [ContactController::class, 'store']);
-    Route::get('/Contact/NextCode', [ContactController::class, 'getNextUnitCode']);
 });
 
 // User routes
@@ -43,7 +44,5 @@ Route::middleware([RoleMiddleware::class . ':admin'], [RoleMiddleware::class . '
     Route::get('/item-category', function () {
         return view('pages.item_category');
     })->name('page.item-category');
-    Route::get('/contacts', function () {
-        return view('pages.contact');
-    })->name('page.contact');
+    Route::get('/contacts', [ContactController::class, 'index'])->name('page.contact');
 });

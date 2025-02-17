@@ -9,6 +9,19 @@ function closeContactModal() {
     $("#termsDropdownBtn").text("Terms of Payment");
 }
 
+function refreshContactTable() {
+    $.ajax({
+        url: "/contacts/table",
+        type: "GET",
+        success: function (response) {
+            $(".table-wrapper tbody").html(response);
+        },
+        error: function () {
+            toastr.error("Failed to refresh contacts.");
+        },
+    });
+}
+
 $(document).ready(function () {
     $("#termsDropdownBtn").on("click", function (event) {
         event.stopPropagation();
@@ -69,6 +82,8 @@ $(document).ready(function () {
                 toastr.success("Added successfully!");
                 $("#addContactForm")[0].reset();
                 fetchNextUnitCode();
+                refreshContactTable();
+                closeContactModal();
             },
             error: function (xhr) {
                 toastr.error(xhr.responseJSON?.message || "An error occurred.");
