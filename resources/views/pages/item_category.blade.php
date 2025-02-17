@@ -42,7 +42,6 @@
 
 @section('content')
 <div class="input-container shadow-md p-3 bg-white rounded flex items-center justify-between">
-    <!-- Search Input (Left) -->
     <div class="search-container relative w-60">
         <x-bladewind.input id="searchInput" class="pl-10 h-10" placeholder="Search..." />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -53,7 +52,6 @@
         </svg>
     </div>
 
-    <!-- Form (Right) -->
     <form id="addItemCategoryForm" autocomplete="off">
         @csrf
         <div class="input-group flex items-center gap-2">
