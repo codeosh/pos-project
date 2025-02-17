@@ -1,5 +1,16 @@
 /* public\css\table.css */
 
+/* Input Design */
+input[type="text"] {
+    border-radius: 5px;
+    border: 1px solid #b2b2b2;
+}
+input[type="text"]:focus {
+    border: 1px solid #73b8fe;
+    box-shadow: 0 0 5px rgb(70, 118, 250);
+}
+/* End Input Design */
+
 /* Dropdown Design */
 .dropdown {
     width: 100%;
