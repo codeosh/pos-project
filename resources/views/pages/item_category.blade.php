@@ -41,57 +41,49 @@
 </style>
 
 @section('content')
-<div class="m-3 p-5 rounded-md shadow bg-white overflow-hidden" style="height: 100vh;">
-
-    <!-- Inputs & Search Bar -->
-    <div class="input-container flex justify-between items-center w-full gap-4 mb-1">
-        <!-- Search Input (Left) -->
-        <div class="search-container flex flex-col">
-            <label for="searchInput" class="text-gray-500 font-medium">Search</label>
-            <input type="text" placeholder="Search..." class="w-52 h-10 border rounded px-2" id="searchInput">
-        </div>
-
-        <!-- Form -->
-        <form id="addItemCategoryForm" class="flex justify-end" autocomplete="off">
-            @csrf
-            <div class="input-group flex items-center gap-2">
-                <input type="text" class="border rounded px-2 h-10 w-40 mt-6" placeholder="Code" id="unitcode"
-                    name="unitcode" readonly>
-                <input type="text" class="border rounded px-2 h-10 w-72 mt-6" placeholder="Description" id="pname"
-                    name="pname">
-                <button id="addItemCategoryBtn" type="submit"
-                    class="addBtn bg-blue-500 text-white px-4 py-2 rounded w-28 mt-6">
-                    Add
-                </button>
-                <button id="saveItemCategoryBtn" type="button"
-                    class="saveBtn bg-blue-500 text-white px-4 py-2 rounded w-28 mt-6">
-                    Save
-                </button>
-                <button type="reset" id="resetButton"
-                    class="resetBtn bg-gray-500 text-white px-4 py-2 rounded w-28 mt-6">
-                    Reset
-                </button>
-                <button id="clearButton" type="button"
-                    class="clearBtn bg-gray-500 text-white px-4 py-2 rounded w-28 mt-6">
-                    Clear
-                </button>
-            </div>
-        </form>
+<div class="shadow-md p-3 bg-white rounded flex items-center justify-between">
+    <!-- Search Input (Left) -->
+    <div class="relative w-60">
+        <x-bladewind.input class="pl-10 h-10" placeholder="Search..." />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+            class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2">
+            <path fill-rule="evenodd"
+                d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
+                clip-rule="evenodd" />
+        </svg>
     </div>
 
-    <div class="table-container shadow">
-        <div class="table-wrapper shadow-md">
-            <table class="table-responsive">
-                <thead class="shadow">
-                    <th style="width: 12rem;">Unit Code</th>
-                    <th>Description</th>
-                    <th style="width: 15rem;">Action</th>
-                </thead>
-                <tbody id="itemCategoryTable">
-
-                </tbody>
-            </table>
+    <!-- Form (Right) -->
+    <form id="addItemCategoryForm" class="flex items-center gap-2" autocomplete="off">
+        @csrf
+        <div class="w-32">
+            <x-bladewind.input size="small" placeholder="Code" id="unitcode" name="unitcode" readonly="true" />
         </div>
+        <div class="w-60 me-1">
+            <x-bladewind.input size="small" placeholder="Description" id="pname" name="pname" />
+        </div>
+
+        <x-bladewind.button icon="plus" size="small" id="addItemCategoryBtn" can_submit="true" class="w-32">Add New
+        </x-bladewind.button>
+        <x-bladewind.button icon="plus" size="small" id="saveItemCategoryBtn" class="w-32">Save
+        </x-bladewind.button>
+        <x-bladewind.button size="small" color="gray" id="resetButton" class="w-32">Reset</x-bladewind.button>
+        <x-bladewind.button size="small" color="gray" id="clearButton" class="w-32">Clear</x-bladewind.button>
+    </form>
+</div>
+
+<div class="table-container shadow">
+    <div class="table-wrapper shadow-md">
+        <table class="table-responsive">
+            <thead class="shadow">
+                <th style="width: 12rem;">Unit Code</th>
+                <th>Description</th>
+                <th style="width: 15rem;">Action</th>
+            </thead>
+            <tbody id="itemCategoryTable">
+
+            </tbody>
+        </table>
     </div>
 </div>
 
