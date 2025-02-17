@@ -13,47 +13,20 @@ $(document).ready(function () {
         });
     }
 
-    function fetchItemCategories() {
+    function refreshTable() {
         $.ajax({
+            url: "/item-category/table",
             type: "GET",
-            url: "/Item-Category/Fetch",
             success: function (response) {
-                let rows = "";
-
-                if (response.success && response.categories.length > 0) {
-                    response.categories.forEach((category) => {
-                        rows += `
-                    <tr id="row-${category.unitcode}">
-                        <td>${category.unitcode}</td>
-                        <td>${category.pname}</td>
-                        <td>
-                            <button class="delete-btn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition" 
-                                data-id="${category.unitcode}">
-                                Delete
-                            </button>
-                        </td>
-                    </tr>`;
-                    });
-                } else {
-                    rows = `
-                <tr>
-                    <td colspan="3" class="px-4 py-3 text-center text-gray-500 italic">
-                        No item categories found.
-                    </td>
-                </tr>`;
-                }
-
-                $("#itemCategoryTable").html(rows);
+                $("table tbody").html(response);
             },
             error: function () {
-                toastr.error(
-                    "An error occurred while fetching item categories."
-                );
+                toastr.error("Failed to refresh contacts.");
             },
         });
     }
+
     fetchNextUnitCode();
-    fetchItemCategories();
 
     // Search function
     $("#searchInput").on("keyup", function () {
@@ -89,7 +62,7 @@ $(document).ready(function () {
                 toastr.success("Added successfully!");
                 $("#addItemCategoryForm")[0].reset();
                 fetchNextUnitCode();
-                fetchItemCategories();
+                refreshTable();
             },
             error: function (xhr) {
                 toastr.error(xhr.responseJSON?.message || "An error occurred.");
@@ -229,7 +202,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 toastr.success(response.message);
-                fetchItemCategories();
+                refreshTable();
                 fetchNextUnitCode();
                 $("#pname").val("");
 

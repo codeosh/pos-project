@@ -10,6 +10,24 @@ use Illuminate\Support\Facades\DB;
 
 class ItemCatController extends Controller
 {
+    public function index()
+    {
+        $categories = ItemCategory::select('unitcode', 'pname')
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return view('pages.item_category', compact('categories'));
+    }
+
+    public function refreshTable()
+    {
+        $categories = ItemCategory::select('unitcode', 'pname')
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return view('partials.item_category', compact('categories'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -87,23 +105,6 @@ class ItemCatController extends Controller
         }
 
         return response()->json(['unitcode' => $nextCode]);
-    }
-
-    public function fetchItemCategories()
-    {
-        try {
-            $categories = ItemCategory::select('unitcode', 'pname')
-                ->orderBy('created_at', 'DESC')
-                ->get();
-
-            return response()->json(['success' => true, 'categories' => $categories]);
-        } catch (Exception $error) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to fetch data.',
-                'error_details' => $error->getMessage(),
-            ], 500);
-        }
     }
 
     public function destroy(Request $request, $unitcode)

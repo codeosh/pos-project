@@ -15,7 +15,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // Item-Category Routes
 Route::post('/Item-Category/Page/Store', [ItemCatController::class, 'store'])->name('item-category.store');
 Route::get('/Item-Category/NextCode', [ItemCatController::class, 'getNextUnitCode']);
-Route::get('/Item-Category/Fetch', [ItemCatController::class, 'fetchItemCategories']);
+Route::get('/item-category/table', [ItemCatController::class, 'refreshTable'])->name('contacts.table');
+// Route::get('/Item-Category/Fetch', [ItemCatController::class, 'fetchItemCategories']);
 Route::delete('/Item-Category/Delete/{unitcode}', [ItemCatController::class, 'destroy']);
 Route::delete('/Item-Category/Reset', [ItemCatController::class, 'resetItemCategories']);
 Route::put('/Item-Category/Update', [ItemCatController::class, 'update']);
@@ -41,8 +42,6 @@ Route::middleware([RoleMiddleware::class . ':user'])->group(function () {
 
 // Group User and Admin Routes
 Route::middleware([RoleMiddleware::class . ':admin'], [RoleMiddleware::class . ':user'])->group(function () {
-    Route::get('/item-category', function () {
-        return view('pages.item_category');
-    })->name('page.item-category');
+    Route::get('/item-category', [ItemCatController::class, 'index'])->name('page.item-category');
     Route::get('/contacts', [ContactController::class, 'index'])->name('page.contact');
 });
