@@ -12,15 +12,17 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::latest()->get();
         return view('pages.contact', compact('contacts'));
     }
 
+
     public function refreshTable()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::latest()->get();
         return view('partials.contact_table', compact('contacts'));
     }
+
 
     public function store(Request $request)
     {
