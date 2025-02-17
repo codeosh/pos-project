@@ -46,4 +46,7 @@ Route::middleware([RoleMiddleware::class . ':admin'], [RoleMiddleware::class . '
     Route::get('/contacts', function () {
         return view('pages.contact');
     })->name('page.contact');
+    Route::get('/new-item', function () {
+        return view('pages.new_item');
+    })->name('page.item');
 });
