@@ -41,8 +41,6 @@ $(document).ready(function () {
                         No item categories found.
                     </td>
                 </tr>`;
-
-                    toastr.warning("No item categories found.");
                 }
 
                 $("#itemCategoryTable").html(rows);
