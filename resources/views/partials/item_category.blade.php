@@ -11,5 +11,9 @@
     </td>
 </tr>
 @empty
-
+<tr>
+    <td colspan="3" class="px-4 py-3 text-center text-gray-500 italic">
+        No contacts found.
+    </td>
+</tr>
 @endforelse
