@@ -16,7 +16,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/Item-Category/Page/Store', [ItemCatController::class, 'store'])->name('item-category.store');
 Route::get('/Item-Category/NextCode', [ItemCatController::class, 'getNextUnitCode']);
 Route::get('/item-category/table', [ItemCatController::class, 'refreshTable'])->name('contacts.table');
-// Route::get('/Item-Category/Fetch', [ItemCatController::class, 'fetchItemCategories']);
 Route::delete('/Item-Category/Delete/{unitcode}', [ItemCatController::class, 'destroy']);
 Route::delete('/Item-Category/Reset', [ItemCatController::class, 'resetItemCategories']);
 Route::put('/Item-Category/Update', [ItemCatController::class, 'update']);
