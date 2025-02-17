@@ -142,7 +142,7 @@ $(document).ready(function () {
                         toastr.success(response.message);
                         $("#itemCategoryTable").html("");
                         fetchNextUnitCode();
-                        fetchItemCategories();
+                        refreshTable();
                     },
                     error: function (xhr) {
                         toastr.error(
