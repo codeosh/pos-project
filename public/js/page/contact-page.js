@@ -14,7 +14,7 @@ function refreshContactTable() {
         url: "/contacts/table",
         type: "GET",
         success: function (response) {
-            $(".table-wrapper tbody").html(response);
+            $("table tbody").html(response);
         },
         error: function () {
             toastr.error("Failed to refresh contacts.");

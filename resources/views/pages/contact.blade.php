@@ -49,18 +49,16 @@
 </div>
 
 <div class="table-container shadow">
-    <div class="table-wrapper">
-        <table class="table-responsive">
-            <thead class="shadow">
-                <th style="width: 12rem;">ID</th>
-                <th>Name</th>
-                <th style="width: 25rem;">Action</th>
-            </thead>
-            <tbody>
-                @include('partials.contact_table')
-            </tbody>
-        </table>
-    </div>
+    <table class="table-responsive">
+        <thead class="shadow">
+            <th style="width: 12rem;">ID</th>
+            <th>Name</th>
+            <th style="width: 25rem;">Action</th>
+        </thead>
+        <tbody>
+            @include('partials.contact_table')
+        </tbody>
+    </table>
 </div>
 
 {{-- Scripts Compiled --}}

@@ -30,11 +30,7 @@ input[type="text"]:focus {
     margin-top: 10px;
     border-radius: 5px;
     overflow: auto;
-}
-
-.table-wrapper {
-    max-height: 85%;
-    overflow: auto;
+    max-height: 89%;
 }
 
 .table-responsive {
@@ -82,16 +78,16 @@ td {
 }
 
 /* Scroll Design */
-.table-wrapper::-webkit-scrollbar {
+.table-container::-webkit-scrollbar {
     width: 6px;
 }
 
-.table-wrapper::-webkit-scrollbar-thumb {
+.table-container::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 2px;
 }
 
-.table-wrapper::-webkit-scrollbar-track {
+.table-container::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
 
