@@ -43,7 +43,7 @@
 @section('content')
 <div class="input-container shadow-md p-3 bg-white rounded flex items-center justify-between">
     <div class="search-container relative w-60">
-        <x-bladewind.input id="searchInput" class="pl-10 h-10" placeholder="Search..." />
+        <x-bladewind.input id="searchInput" size="small" class="pl-10 h-10" placeholder="Search..." />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
             class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2">
             <path fill-rule="evenodd"
