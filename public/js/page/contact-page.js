@@ -1,6 +1,7 @@
 // public\js\page\contact-page.js
 function closeContactModal() {
     hideModal("add_contact_modal");
+    $("#addContactForm")[0].reset();
 
     $("#dropTypePayment").val("");
     $("#dropDayPayment").val("");
@@ -91,7 +92,7 @@ $(document).ready(function () {
         });
     });
 
-// Delete Function
+    // Delete Function
     $(document).on("click", ".delete-btn", function (e) {
         e.stopPropagation();
 
@@ -121,7 +122,6 @@ $(document).ready(function () {
                         row.fadeOut(300, function () {
                             $(this).remove();
                         });
-
                     },
                     error: function (xhr) {
                         toastr.error(
