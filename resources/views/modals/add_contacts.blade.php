@@ -10,13 +10,12 @@
             </div>
             <div class="block">
                 <x-bladewind.input label="Customer/Consignee Name" name="consignee" id="consignee"
-                    extra="autocomplete='off'" />
+                    aria-autocomplete="off" />
             </div>
         </div>
 
         <div class="grid grid-cols-1 mb-3">
-            <x-bladewind.input label="Contact Person" name="contactperson" id="contactperson"
-                extra="autocomplete='off'" />
+            <x-bladewind.input label="Contact Person" name="contactperson" id="contactperson" aria-autocomplete="off" />
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
@@ -62,14 +61,14 @@
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
-            <x-bladewind.input label="Address" name="contactaddress" id="contactaddress" extra="autocomplete='off'" />
+            <x-bladewind.input label="Address" name="contactaddress" id="contactaddress" aria-autocomplete="off" />
             <x-bladewind.input label="Contact No." name="contactnum" id="contactnum" numeric="true"
-                show_error_inline="true" extra="autocomplete='off'" />
+                show_error_inline="true" aria-autocomplete="off" />
         </div>
 
         <div class="grid grid-cols-1">
             <x-bladewind::textarea placeholder="Comment" name="contactcomment" id="contactcomment"
-                extra="autocomplete='off'" />
+                aria-autocomplete="off" />
         </div>
         <div class="flex justify-end gap-2">
             <x-bladewind.button can_submit="true" size="tiny" class="w-44">Add</x-bladewind.button>

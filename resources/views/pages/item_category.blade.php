@@ -57,11 +57,11 @@
         <div class="input-group flex items-center gap-2">
             <div class="input w-32">
                 <x-bladewind.input size="small" placeholder="Code" id="unitcode" name="unitcode" readonly="true"
-                    extra="autocomplete='off'" />
+                    aria-autocomplete="off" />
             </div>
             <div class="input w-60 me-1">
                 <x-bladewind.input size="small" placeholder="Description" id="pname" name="pname"
-                    extra="autocomplete='off'" />
+                    aria-autocomplete="off" />
             </div>
 
             <x-bladewind.button icon="plus" size="small" id="addItemCategoryBtn" can_submit="true" class="w-32">Add New
