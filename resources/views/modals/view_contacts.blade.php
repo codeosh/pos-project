@@ -9,14 +9,12 @@
                 <x-bladewind.input label="ID" name="idcode" id="viewidcode" readonly="true" />
             </div>
             <div class="block">
-                <x-bladewind.input label="Customer/Consignee Name" name="consignee" id="viewconsignee"
-                    aria-autocomplete="off" />
+                <x-bladewind.input label="Customer/Consignee Name" name="consignee" id="viewconsignee" />
             </div>
         </div>
 
         <div class="grid grid-cols-1 mb-3">
-            <x-bladewind.input label="Contact Person" name="contactperson" id="viewcontactperson"
-                aria-autocomplete="off" />
+            <x-bladewind.input label="Contact Person" name="contactperson" id="viewcontactperson" />
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
@@ -63,14 +61,13 @@
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
-            <x-bladewind.input label="Address" name="contactaddress" id="viewcontactaddress" aria-autocomplete="off" />
+            <x-bladewind.input label="Address" name="contactaddress" id="viewcontactaddress" />
             <x-bladewind.input label="Contact No." name="contactnum" id="viewcontactnum" numeric="true"
-                show_error_inline="true" aria-autocomplete="off" />
+                show_error_inline="true" />
         </div>
 
         <div class="grid grid-cols-1">
-            <x-bladewind::textarea placeholder="Comment" name="contactcomment" id="viewcontactcomment"
-                aria-autocomplete="off" />
+            <x-bladewind::textarea placeholder="Comment" name="contactcomment" id="viewcontactcomment" />
         </div>
         <div class="flex justify-end gap-2">
             <x-bladewind.button can_submit="true" size="tiny" class="w-44">Save</x-bladewind.button>

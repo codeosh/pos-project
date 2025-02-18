@@ -56,12 +56,10 @@
         @csrf
         <div class="input-group flex items-center gap-2">
             <div class="input w-32">
-                <x-bladewind.input size="small" placeholder="Code" id="unitcode" name="unitcode" readonly="true"
-                    aria-autocomplete="off" />
+                <x-bladewind.input size="small" placeholder="Code" id="unitcode" name="unitcode" readonly="true" />
             </div>
             <div class="input w-60 me-1">
-                <x-bladewind.input size="small" placeholder="Description" id="pname" name="pname"
-                    aria-autocomplete="off" />
+                <x-bladewind.input size="small" placeholder="Description" id="pname" name="pname" />
             </div>
 
             <x-bladewind.button icon="plus" size="small" id="addItemCategoryBtn" can_submit="true" class="w-32">Add New
