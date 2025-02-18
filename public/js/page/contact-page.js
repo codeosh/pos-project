@@ -90,4 +90,46 @@ $(document).ready(function () {
             },
         });
     });
+
+    $(document).on("click", ".delete-btn", function (e) {
+        e.stopPropagation();
+
+        let unitcode = $(this).data("id");
+        let row = $(`#row-${unitcode}`);
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "DELETE",
+                    url: `/Contact/Delete/${unitcode}`,
+                    headers: {
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                            "content"
+                        ),
+                    },
+                    success: function (response) {
+                        toastr.success(response.message);
+                        row.fadeOut(300, function () {
+                            $(this).remove();
+                        });
+
+                    },
+                    error: function (xhr) {
+                        toastr.error(
+                            xhr.responseJSON?.message ||
+                                "An error occurred while deleting."
+                        );
+                    },
+                });
+            }
+        });
+    });
 });

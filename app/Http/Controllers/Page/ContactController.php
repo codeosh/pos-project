@@ -99,4 +99,18 @@ class ContactController extends Controller
 
         return response()->json(['unitcode' => $nextCode]);
     }
+
+    public function destroy(Request $request, $unitcode)
+    {
+        $contact = Contact::where('unitcode', $unitcode)->first();
+
+        if (!$contact) {
+            return response()->json(['success' => false, 'message' => 'Contact not found.'], 404);
+        }
+
+        $contact->delete();
+
+        return response()->json(['success' => true, 'message' => 'Contact deleted successfully.']);
+    }
 }
+
