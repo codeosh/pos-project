@@ -91,6 +91,7 @@ $(document).ready(function () {
         });
     });
 
+// Delete Function
     $(document).on("click", ".delete-btn", function (e) {
         e.stopPropagation();
 
@@ -129,6 +130,25 @@ $(document).ready(function () {
                         );
                     },
                 });
+            }
+        });
+    });
+
+    // Search function
+    $("#searchInput").on("keyup", function () {
+        let searchValue = $(this).val().toLowerCase();
+
+        $("#ContactTable tr").each(function () {
+            let unitCode = $(this).find("td:eq(0)").text().toLowerCase();
+            let contactName = $(this).find("td:eq(1)").text().toLowerCase();
+
+            if (
+                unitCode.includes(searchValue) ||
+                contactName.includes(searchValue)
+            ) {
+                $(this).show();
+            } else {
+                $(this).hide();
             }
         });
     });

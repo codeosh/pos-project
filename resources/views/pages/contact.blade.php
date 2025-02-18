@@ -7,7 +7,7 @@
 <div class="input-container shadow-md p-3 flex items-center bg-white rounded">
     <div class="input-container w-full flex items-center">
         <div class="relative w-60">
-            <x-bladewind.input class="pl-10 h-10" placeholder="Search..." />
+            <x-bladewind.input id="searchInput" class="pl-10 h-10" placeholder="Search..." />
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                 class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2">
                 <path fill-rule="evenodd"
@@ -55,7 +55,8 @@
             <th>Name</th>
             <th style="width: 25rem;">Action</th>
         </thead>
-        <tbody>
+        <tbody id="ContactTable">
+
             @include('partials.contact_table')
         </tbody>
     </table>
