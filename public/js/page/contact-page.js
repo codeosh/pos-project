@@ -1,7 +1,6 @@
 // public\js\page\contact-page.js
 function closeContactModal() {
     hideModal("add_contact_modal");
-    $("#addContactForm")[0].reset();
 
     $("#dropTypePayment").val("");
     $("#dropDayPayment").val("");
