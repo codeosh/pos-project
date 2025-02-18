@@ -4,7 +4,8 @@
     <td>{{ $contact->unitcode }}</td>
     <td>{{ $contact->customername }}</td>
     <td>
-        <x-bladewind.button icon="eye" size="tiny" class="w-32">View</x-bladewind.button>
+        <x-bladewind.button icon="eye" size="tiny" class="w-32 view-btn" data-id="{{ $contact->unitcode }}">View
+        </x-bladewind.button>
         <x-bladewind.button icon="trash" size="tiny" class="w-32 delete-btn" color="red"
             data-id="{{ $contact->unitcode }}">
             Delete

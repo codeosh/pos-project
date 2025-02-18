@@ -1,6 +1,7 @@
 // public\js\page\contact-page.js
 function closeContactModal() {
     hideModal("add_contact_modal");
+    hideModal("view_contact_modal");
 
     $("#dropTypePayment").val("");
     $("#dropDayPayment").val("");
@@ -38,6 +39,25 @@ $(document).ready(function () {
                 .length
         ) {
             $("#termsDropdownMenu").addClass("hidden");
+        }
+    });
+
+    $("#viewtermsDropdownBtn").on("click", function (event) {
+        event.stopPropagation();
+        $("#viewtermsDropdownMenu").toggleClass("hidden");
+    });
+
+    $("#viewtermsDropdownMenu").on("click", function (event) {
+        event.stopPropagation();
+    });
+
+    $(document).on("mousedown", function (event) {
+        if (
+            !$(event.target).closest(
+                "#viewtermsDropdownMenu, #viewtermsDropdownBtn"
+            ).length
+        ) {
+            $("#viewtermsDropdownMenu").addClass("hidden");
         }
     });
 
@@ -132,6 +152,56 @@ $(document).ready(function () {
             }
         });
     });
+
+    // View Function
+    $(document).on("click", ".view-btn", function (e) {
+        e.stopPropagation();
+
+        let unitcode = $(this).data("id");
+
+        $.ajax({
+            url: `/contacts/${unitcode}`,
+            type: "GET",
+            success: function (response) {
+                const contact = response.contact;
+                const termPayment = response.termPayment;
+
+                $("#viewseqcode").val(contact.unitcode);
+                $("#viewidnum").val(contact.unitcode);
+                $("#viewidcode").val(contact.unitcode);
+                $("#viewconsignee").val(contact.customername);
+                $("#viewcontactperson").val(contact.contactperson);
+                $("#viewdropGroup").val(contact.group);
+                $("#viewtin").val(contact.tin);
+                $("#viewcontactaddress").val(contact.address);
+                $("#viewcontactnum").val(contact.contact);
+                $("#viewcontactcomment").val(contact.comment || "");
+
+                if (termPayment) {
+                    $("#viewdropTypePayment").val(termPayment.type).change();
+                    $("#viewdropDayPayment").val(termPayment.day).change();
+
+                    viewupdateTermsButtonText();
+                }
+
+                showModal("view_contact_modal");
+            },
+            error: function () {
+                toastr.error("Failed to load contact details.");
+            },
+        });
+    });
+
+    function viewupdateTermsButtonText() {
+        let type = $("#viewdropTypePayment").val() || "Type";
+        let days = $("#viewdropDayPayment").val() || "Days";
+        $("#viewtermsDropdownBtn").text(`${type} / ${days}`);
+    }
+
+    $("#viewdropTypePayment, #viewdropDayPayment").on(
+        "change",
+        viewupdateTermsButtonText
+    );
 
     // Search function
     $("#searchInput").on("keyup", function () {

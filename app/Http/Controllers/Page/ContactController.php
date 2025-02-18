@@ -23,6 +23,22 @@ class ContactController extends Controller
         return view('partials.contact_table', compact('contacts'));
     }
 
+    public function show($unitcode)
+    {
+        $contact = Contact::where('unitcode', $unitcode)->first();
+
+        if (!$contact) {
+            return response()->json(['error' => 'Contact not found'], 404);
+        }
+
+        $termPayment = $contact->payment;
+
+        return response()->json([
+            'contact' => $contact,
+            'termPayment' => $termPayment
+        ]);
+    }
+
 
     public function store(Request $request)
     {
@@ -113,4 +129,3 @@ class ContactController extends Controller
         return response()->json(['success' => true, 'message' => 'Contact deleted successfully.']);
     }
 }
-
