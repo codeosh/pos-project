@@ -141,6 +141,7 @@ $(document).ready(function () {
                         row.fadeOut(300, function () {
                             $(this).remove();
                         });
+                        refreshContactTable();
                     },
                     error: function (xhr) {
                         toastr.error(

@@ -100,6 +100,8 @@ $(document).ready(function () {
                             $(this).remove();
                         });
 
+                        refreshTable();
+
                         $("#clearButton").click();
                         $("#addItemCategoryBtn").show();
                         $("#saveItemCategoryBtn").hide();
