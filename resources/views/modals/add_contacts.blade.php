@@ -1,3 +1,4 @@
+{{-- resources\views\modals\add_contacts.blade.php --}}
 <x-bladewind.modal name="add_contact_modal" size="xl" title="Add Contact" show_action_buttons="false">
 
     <form id="addContactForm">

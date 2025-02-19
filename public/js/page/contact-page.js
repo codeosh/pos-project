@@ -254,4 +254,64 @@ $(document).ready(function () {
             },
         });
     });
+
+    $(".filter-container select").on("change", function () {
+        let selectedGroup = $(".filter-container select").eq(0).val();
+        let sortBy = $(".filter-container select").eq(1).val();
+        let $table = $("#ContactTable");
+        let $rows = $table.find("tr").toArray();
+        let visibleRows = 0;
+
+        // Filter Contacts
+        $rows.forEach((row) => {
+            let contactGroup = $(row).data("group");
+            if (
+                selectedGroup === "All Entry" ||
+                contactGroup === selectedGroup
+            ) {
+                $(row).show();
+                visibleRows++;
+            } else {
+                $(row).hide();
+            }
+        });
+
+        // Show "No contacts found" message
+        if (visibleRows === 0) {
+            if ($("#no-contacts-row").length === 0) {
+                $table.append(`
+                <tr id="no-contacts-row">
+                    <td colspan="3" class="px-4 py-3 text-center text-gray-500 italic">
+                        No contacts found.
+                    </td>
+                </tr>
+            `);
+            }
+        } else {
+            $("#no-contacts-row").remove();
+        }
+
+        // Sort Contacts
+        if (sortBy !== "Sort By") {
+            $rows.sort((a, b) => {
+                let textA = $(a).find("td:eq(1)").text().toUpperCase();
+                let textB = $(b).find("td:eq(1)").text().toUpperCase();
+
+                if (sortBy === "Alphabetical")
+                    return textA.localeCompare(textB);
+                if (sortBy === "Ascending")
+                    return $(a)
+                        .find("td:eq(0)")
+                        .text()
+                        .localeCompare($(b).find("td:eq(0)").text());
+                if (sortBy === "Descending" || sortBy === "Default")
+                    return $(b)
+                        .find("td:eq(0)")
+                        .text()
+                        .localeCompare($(a).find("td:eq(0)").text());
+            });
+
+            $table.append($rows);
+        }
+    });
 });

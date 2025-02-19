@@ -1,6 +1,6 @@
 {{-- resources\views\partials\contact_table.blade.php --}}
 @forelse($contacts as $contact)
-<tr id="row-{{ $contact->unitcode }}">
+<tr id="row-{{ $contact->unitcode }}" data-group="{{ $contact->group ?? 'UNSPECIFIED' }}">
     <td>{{ $contact->unitcode }}</td>
     <td>{{ $contact->customername }}</td>
     <td>
