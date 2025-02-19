@@ -1,6 +1,14 @@
 // public\js\page\contact-page.js
 function closeContactModal() {
     hideModal("add_contact_modal");
+
+    $("#dropTypePayment").val("");
+    $("#dropDayPayment").val("");
+    $("#termsDropdownMenu").addClass("hidden");
+
+    $("#termsDropdownBtn").text("Terms of Payment");
+}
+function closeViewContactModal() {
     hideModal("view_contact_modal");
 
     $("#dropTypePayment").val("");
@@ -220,6 +228,30 @@ $(document).ready(function () {
             } else {
                 $(this).hide();
             }
+        });
+    });
+
+    $("#saveViewContact").on("click", function (e) {
+        e.preventDefault();
+
+        let unitcode = $("#viewseqcode").val();
+        let formData = $("#viewContactForm").serialize();
+
+        $.ajax({
+            type: "PUT",
+            url: `/contacts/update/${unitcode}`,
+            data: formData,
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+            success: function (response) {
+                toastr.success(response.message);
+                refreshContactTable();
+                closeContactModal();
+            },
+            error: function (xhr) {
+                toastr.error(xhr.responseJSON?.message || "An error occurred.");
+            },
         });
     });
 });

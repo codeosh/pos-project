@@ -128,4 +128,56 @@ class ContactController extends Controller
 
         return response()->json(['success' => true, 'message' => 'Contact deleted successfully.']);
     }
+
+    public function update(Request $request, $unitcode)
+    {
+        $validatedData = $request->validate([
+            'seqcode' => 'required|string|max:255',
+            'consignee' => 'required|string|max:255',
+            'contactperson' => 'required|string|max:255',
+            'dropGroup' => 'required|string|max:255',
+            'tin' => 'required|string|max:255',
+            'dropTypePayment' => 'required|string|max:255',
+            'dropDayPayment' => 'required|string|max:255',
+            'contactaddress' => 'required|string|max:255',
+            'contactnum' => 'required|numeric|digits_between:7,15',
+            'contactcomment' => 'nullable|string',
+        ]);
+
+        try {
+            DB::beginTransaction();
+
+            $contact = Contact::where('unitcode', $unitcode)->first();
+
+            if (!$contact) {
+                return response()->json(['success' => false, 'message' => 'Contact not found.'], 404);
+            }
+
+            $contact->update([
+                'customername' => $validatedData['consignee'],
+                'contactperson' => $validatedData['contactperson'],
+                'group' => $validatedData['dropGroup'],
+                'tin' => $validatedData['tin'],
+                'address' => $validatedData['contactaddress'],
+                'contact' => (int) $validatedData['contactnum'],
+                'comment' => $validatedData['contactcomment'],
+            ]);
+
+            $contact->payment()->update([
+                'type' => $validatedData['dropTypePayment'],
+                'day' => $validatedData['dropDayPayment'],
+            ]);
+
+            DB::commit();
+
+            return response()->json(['success' => true, 'message' => 'Updated successfully!']);
+        } catch (Exception $error) {
+            DB::rollBack();
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while updating.',
+                'error_details' => $error->getMessage(),
+            ], 500);
+        }
+    }
 }

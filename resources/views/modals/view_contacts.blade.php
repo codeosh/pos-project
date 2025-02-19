@@ -1,6 +1,6 @@
 <x-bladewind.modal name="view_contact_modal" size="xl" title="Add Contact" show_action_buttons="false">
 
-    <form id="ViewContactForm" autocomplete="off">
+    <form id="viewContactForm" autocomplete="off">
         @csrf
         <div class="grid grid-cols-2 gap-2 mb-3">
             <div class="flex gap-1">
@@ -9,12 +9,13 @@
                 <x-bladewind.input label="ID" name="idcode" id="viewidcode" readonly="true" />
             </div>
             <div class="block">
-                <x-bladewind.input label="Customer/Consignee Name" name="consignee" id="viewconsignee" />
+                <x-bladewind.input label="Customer/Consignee Name" name="consignee" id="viewconsignee"
+                    autocomplete="off" />
             </div>
         </div>
 
         <div class="grid grid-cols-1 mb-3">
-            <x-bladewind.input label="Contact Person" name="contactperson" id="viewcontactperson" />
+            <x-bladewind.input label="Contact Person" name="contactperson" id="viewcontactperson" autocomplete="off" />
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
@@ -61,17 +62,18 @@
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
-            <x-bladewind.input label="Address" name="contactaddress" id="viewcontactaddress" />
+            <x-bladewind.input label="Address" name="contactaddress" id="viewcontactaddress" autocomplete="off" />
             <x-bladewind.input label="Contact No." name="contactnum" id="viewcontactnum" numeric="true"
-                show_error_inline="true" />
+                show_error_inline="true" autocomplete="off" />
         </div>
 
         <div class="grid grid-cols-1">
-            <x-bladewind::textarea placeholder="Comment" name="contactcomment" id="viewcontactcomment" />
+            <x-bladewind::textarea placeholder="Comment" name="contactcomment" id="viewcontactcomment"
+                autocomplete="off" />
         </div>
         <div class="flex justify-end gap-2">
-            <x-bladewind.button can_submit="true" size="tiny" class="w-44">Save</x-bladewind.button>
-            <x-bladewind.button size="tiny" color="gray" onclick="closeContactModal()" class="w-44">Close
+            <x-bladewind.button size="tiny" id="saveViewContact" class="w-44">Save</x-bladewind.button>
+            <x-bladewind.button size="tiny" color="gray" onclick="closeViewContactModal()" class="w-44">Close
             </x-bladewind.button>
         </div>
     </form>

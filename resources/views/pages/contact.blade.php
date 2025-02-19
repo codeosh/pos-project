@@ -20,13 +20,10 @@
             <div class="w-36">
                 <select class="dropdown h-10">
                     <option selected>All Entry</option>
-                    <option value="Customer">Customer</option>
-                    <option value="Supplier">Supplier</option>
+                    <option value="CUSTOMER">CUSTOMER</option>
                     <option value="VIP">VIP</option>
-                    <option value="Friends">Friends</option>
-                    <option value="Unspecified">Unspecified</option>
-                    <option value="Address">Address</option>
-                    <option value="Contact No">Contact No</option>
+                    <option value="FRIENDS">FRIENDS</option>
+                    <option value="UNSPECIFIED">UNSPECIFIED</option>
                 </select>
             </div>
             <div class="w-36 ms-1">

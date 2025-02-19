@@ -26,6 +26,7 @@ Route::get('/Contact/NextCode', [ContactController::class, 'getNextUnitCode']);
 Route::get('/contacts/table', [ContactController::class, 'refreshTable'])->name('contacts.table');
 Route::delete('/Contact/Delete/{unitcode}', [ContactController::class, 'destroy']);
 Route::get('/contacts/{unitcode}', [ContactController::class, 'show']);
+Route::put('/contacts/update/{unitcode}', [ContactController::class, 'update'])->name('contacts.update');
 
 // Admin routes
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
