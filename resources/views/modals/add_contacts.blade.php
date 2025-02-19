@@ -1,6 +1,6 @@
 <x-bladewind.modal name="add_contact_modal" size="xl" title="Add Contact" show_action_buttons="false">
 
-    <form id="addContactForm" autocomplete="off">
+    <form id="addContactForm">
         @csrf
         <div class="grid grid-cols-2 gap-2 mb-3">
             <div class="flex gap-1">
@@ -9,12 +9,12 @@
                 <x-bladewind.input label="ID" name="idcode" id="idcode" readonly="true" />
             </div>
             <div class="block">
-                <x-bladewind.input label="Customer/Consignee Name" name="consignee" id="consignee" />
+                <x-bladewind.input label="Customer/Consignee Name" name="consignee" id="consignee" autocomplete="off" />
             </div>
         </div>
 
         <div class="grid grid-cols-1 mb-3">
-            <x-bladewind.input label="Contact Person" name="contactperson" id="contactperson" />
+            <x-bladewind.input label="Contact Person" name="contactperson" id="contactperson" autocomplete="off" />
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
@@ -26,7 +26,7 @@
                     <option value="FRIENDS">FRIENDS</option>
                     <option value="UNSPECIFIED">UNSPECIFIED</option>
                 </select>
-                <x-bladewind.input label="VAT TIN (NOS.)" name="tin" id="tin" />
+                <x-bladewind.input label="VAT TIN (NOS.)" name="tin" id="tin" autocomplete="off" />
             </div>
 
             <!-- Terms of Payment Dropdown -->
@@ -60,9 +60,9 @@
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-3">
-            <x-bladewind.input label="Address" name="contactaddress" id="contactaddress" />
+            <x-bladewind.input label="Address" name="contactaddress" id="contactaddress" autocomplete="off" />
             <x-bladewind.input label="Contact No." name="contactnum" id="contactnum" numeric="true"
-                show_error_inline="true" />
+                show_error_inline="true" autocomplete="off" />
         </div>
 
         <div class="grid grid-cols-1">

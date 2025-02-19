@@ -170,7 +170,7 @@ if($attributes->get('disabled') == 'false') $attributes = $attributes->except('d
     'id' => $name,
     'name' => $name,
     'value' => html_entity_decode($selected_value),
-    'autocomplete' => "new-password",
+    'autocomplete' => $attributes->get('autocomplete', 'new-password'),
     'placeholder' => $placeholder_label.$required_symbol,
     ]) }}
     @if($error_message != '')
