@@ -32,9 +32,10 @@
                     <i class="fa-solid fa-cart-shopping"></i> Products
                     <i class="fa-solid fa-chevron-down transition-transform duration-300 ms-10"></i>
                 </a>
-                <ul class="dropdown-menu hidden mt-1 pl-5">
+                <ul class="dropdown-menu hidden mt-1">
                     <li class="mb-1">
-                        <a href="#" class="item-links">
+                        <a href="{{route('page.productl-list')}}"
+                            class="item-links {{Request::routeIs('page.productl-list') ? 'active' : ''}}">
                             <i class="fa-solid fa-box"></i> Product List
                         </a>
                     </li>

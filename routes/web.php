@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Page\ContactController;
 use App\Http\Controllers\Page\ItemCatController;
+use App\Http\Controllers\Page\ProductListController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -46,4 +47,5 @@ Route::middleware([RoleMiddleware::class . ':user'])->group(function () {
 Route::middleware([RoleMiddleware::class . ':admin'], [RoleMiddleware::class . ':user'])->group(function () {
     Route::get('/item-category', [ItemCatController::class, 'index'])->name('page.item-category');
     Route::get('/contacts', [ContactController::class, 'index'])->name('page.contact');
+    Route::get('/product-list', [ProductListController::class, 'index'])->name('page.productl-list');
 });
