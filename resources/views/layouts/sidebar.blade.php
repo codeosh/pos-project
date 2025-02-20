@@ -26,6 +26,25 @@
                     <i class="fa-solid fa-phone"></i> Contacts
                 </a>
             </li>
+            {{-- Products Dropdown --}}
+            <li class="item-list">
+                <a href="#" class="item-links dropdown-btn">
+                    <i class="fa-solid fa-cart-shopping"></i> Products
+                    <i class="fa-solid fa-chevron-down transition-transform duration-300 ms-10"></i>
+                </a>
+                <ul class="dropdown-menu hidden mt-1 pl-5">
+                    <li class="mb-1">
+                        <a href="#" class="item-links">
+                            <i class="fa-solid fa-box"></i> Product List
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="item-links">
+                            <i class="fa-solid fa-plus"></i> Add Product
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>

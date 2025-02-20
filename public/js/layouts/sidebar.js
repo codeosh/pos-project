@@ -9,6 +9,7 @@ $(document).ready(function () {
             $(".body-content").removeClass("collapsed");
         }
         toggleProfileContainer();
+        closeDropdowns();
     }
 
     function toggleProfileContainer() {
@@ -17,6 +18,11 @@ $(document).ready(function () {
         } else {
             $(".profile-container").show();
         }
+    }
+
+    function closeDropdowns() {
+        $(".dropdown-menu").slideUp(100);
+        $(".dropdown-btn i.fa-chevron-down").removeClass("rotate-180");
     }
 
     checkScreenSize();
@@ -29,5 +35,24 @@ $(document).ready(function () {
         $(".sidebar").toggleClass("active");
         $(".body-content").toggleClass("collapsed");
         toggleProfileContainer();
+
+        if ($(".sidebar").hasClass("active")) {
+            closeDropdowns();
+        }
+    });
+
+    $(".dropdown-btn").on("click", function (e) {
+        e.preventDefault();
+
+        let $menu = $(this).next(".dropdown-menu");
+        let $icon = $(this).find("i.fa-chevron-down");
+
+        $(".dropdown-menu").not($menu).slideUp(100);
+        $(".dropdown-btn i.fa-chevron-down")
+            .not($icon)
+            .removeClass("rotate-180");
+
+        $menu.slideToggle(100);
+        $icon.toggleClass("rotate-180");
     });
 });
