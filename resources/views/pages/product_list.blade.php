@@ -19,24 +19,25 @@
         <div class="button-container flex gap-1">
             <x-bladewind.button icon="plus" size="small" class="w-32" onclick="showModal('add_contact_modal')">Add New
             </x-bladewind.button>
-            <x-bladewind::dropmenu>
 
-    <x-slot:trigger>
-        <x-bladewind.button icon="bars-3" size="small" color="gray" circular="true" class="flex items-center justify-center p-0"></x-bladewind.button>
-    </x-slot:trigger>
-    <x-bladewind::dropmenu-item icon="currency-dollar">
-        Mass Price Update
-    </x-bladewind::dropmenu-item>
-    <x-bladewind::dropmenu-item icon="inbox-arrow-down">
-        Package Item
-    </x-bladewind::dropmenu-item>
-    <x-bladewind::dropmenu-item icon="adjustments-horizontal">
-        S/N Serial
-    </x-bladewind::dropmenu-item>
-    <x-bladewind::dropmenu-item icon="printer">
-        Print & Export
-    </x-bladewind::dropmenu-item>
-</x-bladewind::dropmenu>
+            <x-bladewind::dropmenu>
+                <x-slot:trigger>
+                    <x-bladewind.button icon="bars-3" size="small" color="gray" circular="true"
+                        class="flex items-center justify-center p-0"></x-bladewind.button>
+                </x-slot:trigger>
+                <x-bladewind::dropmenu-item icon="currency-dollar">
+                    Mass Price Update
+                </x-bladewind::dropmenu-item>
+                <x-bladewind::dropmenu-item icon="inbox-arrow-down">
+                    Package Item
+                </x-bladewind::dropmenu-item>
+                <x-bladewind::dropmenu-item icon="adjustments-horizontal">
+                    S/N Serial
+                </x-bladewind::dropmenu-item>
+                <x-bladewind::dropmenu-item icon="printer">
+                    Print & Export
+                </x-bladewind::dropmenu-item>
+            </x-bladewind::dropmenu>
         </div>
     </div>
 </div>
