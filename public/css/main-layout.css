@@ -119,9 +119,9 @@
     margin-right: 8px;
 }
 .item-links:hover {
-    color: #fff;
-    background: #1e90ff;
-    border: 1px solid #0160be;
+    color: #000;
+    background: #e3e3e3;
+    border: 1px solid #cfcfcf;
     transition: all 0.3s ease;
 }
 .item-links:hover i {
