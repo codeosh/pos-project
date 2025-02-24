@@ -40,7 +40,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="item-links">
+                        <a href="{{route('page.add-product')}}"
+                            class="item-links {{Request::routeIs('page.add-product') ? 'active' : ''}}">
                             <i class="fa-solid fa-plus"></i> Add Product
                         </a>
                     </li>
