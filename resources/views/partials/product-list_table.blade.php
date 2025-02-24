@@ -1,0 +1,1 @@
+{{-- resources\views\partials\product-list_table.blade.php --}}

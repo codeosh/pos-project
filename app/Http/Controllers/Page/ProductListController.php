@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Page;
 
 use App\Http\Controllers\Controller;
+use App\Models\ItemCategory;
 use Illuminate\Http\Request;
 
 class ProductListController extends Controller
 {
     public function index()
     {
-        return view('pages.product_list');
+        $categories = ItemCategory::all();
+
+        return view('pages.product_list', compact('categories'));
     }
 }

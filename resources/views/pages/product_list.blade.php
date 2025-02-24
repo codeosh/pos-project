@@ -4,8 +4,9 @@
 @section('title', "Product List - Page")
 
 @section('content')
-<div class="input-container shadow-md p-3 flex items-center bg-white rounded">
-  <div class="input-container w-full flex justify-between items-center">
+<div class="shadow-md p-3 bg-white rounded">
+  <div class="w-full flex justify-between items-center">
+
     <div class="relative w-60">
       <x-bladewind.input id="searchInput" class="pl-10 h-10" placeholder="Search..." />
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -17,7 +18,7 @@
     </div>
 
     <div class="button-container flex gap-1">
-      <x-bladewind.button icon="plus" size="small" class="w-32" onclick="showModal('add_contact_modal')">Add New
+      <x-bladewind.button icon="plus" size="small" class="w-32" onclick="showModal('')">Add New
       </x-bladewind.button>
 
       <div class="relative inline-block">
@@ -78,7 +79,87 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>
+
+{{-- Filter Container --}}
+<div class="w-full flex items-center gap-2 mt-3">
+
+  <div class="w-36">
+    <label for="dropProdUnit" class="text-sm">Unit:</label>
+    <select name="dropProdUnit" id="dropProdUnit" class="dropdown h-10 cursor-pointer">
+      <option selected>Select Unit</option>
+      <option value="PCS">PCS</option>
+      <option value="BOX">BOX</option>
+      <option value="KLS">KLS</option>
+      <option value="LTR">LTR</option>
+      <option value="SET">SET</option>
+      <option value="CTN">CTN</option>
+      <option value="PCK">PCK</option>
+    </select>
+  </div>
+
+  <div class="w-44">
+    <label for="dropProdCategory" class="text-sm">Category:</label>
+    <select name="dropProdCategory" id="dropProdCategory" class="dropdown h-10 cursor-pointer">
+      <option selected>Select Category</option>
+      @foreach ($categories as $category)
+      <option value="{{ $category->unitcode }}">{{ $category->pname }}</option>
+      @endforeach
+    </select>
+  </div>
+
+  <div class="w-52">
+    <label for="dropProdSubCategory" class="text-sm">Sub-Category:</label>
+    <select name="dropProdSubCategory" id="dropProdSubCategory" class="dropdown h-10 cursor-pointer">
+      <option selected>Select Sub-Category</option>
+    </select>
+  </div>
+
+</div>
+
+<div class="table-container shadow">
+  <div class="table-wrapper shadow-md">
+    <table class="table-responsive">
+      <thead class="shadow">
+        <tr>
+          <th style="width: 8rem;">####</th>
+          <th style="width: 10rem;">Barcode</th>
+          <th style="width: 22rem;">Products & Services</th>
+          <th style="width: 10rem;">Unit</th>
+          <th style="width: 10rem;">Costing</th>
+          <th style="width: 10rem;">Reg Price</th>
+          <th style="width: 10rem;">Wholesale</th>
+          <th style="width: 10rem;">Promo</th>
+          <th style="width: 13rem;">Categories</th>
+          <th style="width: 15rem;">Sub-Categories</th>
+          <th style="width: 10rem;">Seller</th>
+          <th style="width: 10rem;">Supplier</th>
+          <th style="width: 10rem;">Warranty</th>
+          <th style="width: 10rem;">C-Level</th>
+          <th style="width: 10rem;">P-Type</th>
+          <th style="width: 10rem;">R Markup</th>
+          <th style="width: 10rem;">RMT</th>
+          <th style="width: 10rem;">RMT+ Amt</th>
+          <th style="width: 10rem;">W-Markup</th>
+          <th style="width: 10rem;">Wmt</th>
+          <th style="width: 10rem;">WM+ Amt</th>
+          <th style="width: 10rem;">P-Markup</th>
+          <th style="width: 10rem;">Pmt</th>
+          <th style="width: 10rem;">PM+ Amt</th>
+          <th style="width: 12rem;">Date Registered</th>
+          <th style="width: 10rem;">VTseq</th>
+          <th style="width: 10rem;">SPCode</th>
+        </tr>
+      </thead>
+      <tbody id="productListTable">
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{{-- Scripts Compiled --}}
 <script src="{{asset('js/page/product-list.js')}}"></script>
 @endsection
