@@ -48,8 +48,4 @@ Route::middleware([RoleMiddleware::class . ':admin'], [RoleMiddleware::class . '
     Route::get('/item-category', [ItemCatController::class, 'index'])->name('page.item-category');
     Route::get('/contacts', [ContactController::class, 'index'])->name('page.contact');
     Route::get('/product-list', [ProductListController::class, 'index'])->name('page.productl-list');
-
-    Route::get('/add-product', function () {
-        return view('pages.add-product');
-    })->name('page.add-product');
 });

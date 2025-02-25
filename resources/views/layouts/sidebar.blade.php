@@ -15,12 +15,6 @@
             </li>
             <hr class="mt-5 mb-3">
             <li class="item-list">
-                <a href="{{route('page.item-category')}}"
-                    class="item-links {{ Request::routeIs('page.item-category') ? 'active' : '' }}">
-                    <i class="fa-solid fa-list"></i> Item Category
-                </a>
-            </li>
-            <li class="item-list">
                 <a href="{{route('page.contact')}}"
                     class="item-links {{ Request::routeIs('page.contact') ? 'active' : '' }}">
                     <i class="fa-solid fa-phone"></i> Contacts
@@ -39,10 +33,20 @@
                             <i class="fa-solid fa-box"></i> Product List
                         </a>
                     </li>
-                    <li>
-                        <a href="{{route('page.add-product')}}"
-                            class="item-links {{Request::routeIs('page.add-product') ? 'active' : ''}}">
-                            <i class="fa-solid fa-plus"></i> Add Product
+                    <li class="mb-1">
+                        <a href="{{route('page.item-category')}}"
+                            class="item-links {{ Request::routeIs('page.item-category') ? 'active' : '' }}">
+                            <i class="fa-solid fa-list"></i> Item Category
+                        </a>
+                    </li>
+                    <li class="mb-1">
+                        <a href="#" class="item-links">
+                            <i class="fa-solid fa-list"></i> Item Units
+                        </a>
+                    </li>
+                    <li class="mb-1">
+                        <a href="#" class="item-links">
+                            <i class="fa-solid fa-list"></i> Item Sub-Category
                         </a>
                     </li>
                 </ul>
