@@ -40,7 +40,8 @@
                         </a>
                     </li>
                     <li class="mb-1">
-                        <a href="#" class="item-links">
+                        <a href="{{route('page.item-units')}}"
+                            class="item-links {{ Request::routeIs('page.item-units') ? 'active' : '' }}">
                             <i class="fa-solid fa-list"></i> Item Units
                         </a>
                     </li>

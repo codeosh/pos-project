@@ -3,8 +3,10 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Page\ContactController;
 use App\Http\Controllers\Page\ItemCatController;
+use App\Http\Controllers\Page\ItemUnitController;
 use App\Http\Controllers\Page\ProductListController;
 use App\Http\Middleware\RoleMiddleware;
+use App\Models\ItemUnit;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,6 +31,9 @@ Route::delete('/Contact/Delete/{unitcode}', [ContactController::class, 'destroy'
 Route::get('/contacts/{unitcode}', [ContactController::class, 'show']);
 Route::put('/contacts/update/{unitcode}', [ContactController::class, 'update'])->name('contacts.update');
 
+// Item Unit Routes
+Route::post('/Item-Units/Page/Store', [ItemUnitController::class, 'store']);
+
 // Admin routes
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::get('/admin-dashboard', function () {
@@ -48,4 +53,5 @@ Route::middleware([RoleMiddleware::class . ':admin'], [RoleMiddleware::class . '
     Route::get('/item-category', [ItemCatController::class, 'index'])->name('page.item-category');
     Route::get('/contacts', [ContactController::class, 'index'])->name('page.contact');
     Route::get('/product-list', [ProductListController::class, 'index'])->name('page.productl-list');
+    Route::get('/item-units', [ItemUnitController::class, 'index'])->name('page.item-units');
 });
