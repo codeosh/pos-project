@@ -12,8 +12,20 @@ class ItemUnitController extends Controller
 {
     public function index()
     {
+        $itemunits = ItemUnit::select('unitcode', 'pname')
+            ->orderBy('created_at', 'DESC')
+            ->get();
 
-        return view('pages.item_units');
+        return view('pages.item_units', compact('itemunits'));
+    }
+
+    public function refreshTable()
+    {
+        $itemunits = ItemUnit::select('unitcode', 'pname')
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
+        return view('partials.item_unit', compact('itemunits'));
     }
 
     public function store(Request $request)
@@ -72,5 +84,33 @@ class ItemUnitController extends Controller
         }
 
         return response()->json(['unitcode' => $nextCode]);
+    }
+
+    public function destroy($unitcode)
+    {
+        $category = ItemUnit::where('unitcode', $unitcode)->first();
+
+        if (!$category) {
+            return response()->json(['success' => false, 'message' => 'Item category not found.'], 404);
+        }
+
+        $category->delete();
+
+        return response()->json(['success' => true, 'message' => 'Item category deleted successfully.']);
+    }
+
+    public function resetItemUnit()
+    {
+        try {
+            ItemUnit::truncate();
+
+            return response()->json(['success' => true, 'message' => 'All item categories have been deleted.']);
+        } catch (Exception $error) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while resetting.',
+                'error_details' => $error->getMessage(),
+            ], 500);
+        }
     }
 }

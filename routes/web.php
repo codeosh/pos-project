@@ -18,7 +18,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // Item-Category Routes
 Route::post('/Item-Category/Page/Store', [ItemCatController::class, 'store'])->name('item-category.store');
 Route::get('/Item-Category/NextCode', [ItemCatController::class, 'getNextUnitCode']);
-Route::get('/item-category/table', [ItemCatController::class, 'refreshTable'])->name('contacts.table');
+Route::get('/item-category/table', [ItemCatController::class, 'refreshTable'])->name('item-category.table');
 Route::delete('/Item-Category/Delete/{unitcode}', [ItemCatController::class, 'destroy']);
 Route::delete('/Item-Category/Reset', [ItemCatController::class, 'resetItemCategories']);
 Route::put('/Item-Category/Update', [ItemCatController::class, 'update']);
@@ -33,6 +33,10 @@ Route::put('/contacts/update/{unitcode}', [ContactController::class, 'update'])-
 
 // Item Unit Routes
 Route::post('/Item-Units/Page/Store', [ItemUnitController::class, 'store']);
+Route::get('/Item-Units/NextCode', [ItemUnitController::class, 'getNextUnitCode']);
+Route::get('/Item-Units/table', [ItemUnitController::class, 'refreshTable'])->name('item-unit.table');
+Route::delete('/Item-Unit/Delete/{unitcode}', [ItemUnitController::class, 'destroy']);
+Route::delete('/Item-Unit/Reset', [ItemUnitController::class, 'resetItemUnit']);
 
 // Admin routes
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {

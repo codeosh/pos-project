@@ -21,7 +21,7 @@ $(document).ready(function () {
                 $("table tbody").html(response);
             },
             error: function () {
-                toastr.error("Failed to refresh contacts.");
+                toastr.error("Failed to refresh table.");
             },
         });
     }

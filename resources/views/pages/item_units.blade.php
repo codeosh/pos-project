@@ -82,7 +82,7 @@
                 <th style="width: 15rem;">Action</th>
             </thead>
             <tbody id="itemUnitsTable">
-                {{-- @include('partials.item_category') --}}
+                @include('partials.item_unit')
             </tbody>
         </table>
     </div>
