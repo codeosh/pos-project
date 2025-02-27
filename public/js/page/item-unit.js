@@ -195,7 +195,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "PUT",
-            url: "/Item-Category/Update",
+            url: "/Item-Unit/Update",
             data: {
                 unitcode: unitcode,
                 pname: pname,
@@ -207,8 +207,8 @@ $(document).ready(function () {
                 fetchNextUnitCode();
                 $("#pname").val("");
 
-                $("#addItemCategoryBtn").show();
-                $("#saveItemCategoryBtn").hide();
+                $("#addItemUnitsBtn").show();
+                $("#saveItemUnitsBtn").hide();
 
                 $("#resetButton").show();
                 $("#clearButton").hide();

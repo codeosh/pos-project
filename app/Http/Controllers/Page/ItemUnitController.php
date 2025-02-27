@@ -86,6 +86,26 @@ class ItemUnitController extends Controller
         return response()->json(['unitcode' => $nextCode]);
     }
 
+    public function update(Request $request)
+    {
+        $request->validate([
+            'unitcode' => 'required|exists:tbl_item_units,unitcode',
+            'pname' => 'required|string|max:255',
+        ]);
+
+        $itemunit = ItemUnit::where('unitcode', $request->unitcode)->firstOrFail();
+
+        if (!$itemunit) {
+            return response()->json(['success' => false, 'message' => 'Item Unit not found.'], 404);
+        }
+
+        $itemunit->update([
+            'pname' => $request->pname,
+        ]);
+
+        return response()->json(['success' => true, 'message' => 'Updated successfully!']);
+    }
+
     public function destroy($unitcode)
     {
         $category = ItemUnit::where('unitcode', $unitcode)->first();

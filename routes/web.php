@@ -37,6 +37,7 @@ Route::get('/Item-Units/NextCode', [ItemUnitController::class, 'getNextUnitCode'
 Route::get('/Item-Units/table', [ItemUnitController::class, 'refreshTable'])->name('item-unit.table');
 Route::delete('/Item-Unit/Delete/{unitcode}', [ItemUnitController::class, 'destroy']);
 Route::delete('/Item-Unit/Reset', [ItemUnitController::class, 'resetItemUnit']);
+Route::put('/Item-Unit/Update', [ItemUnitController::class, 'update']);
 
 // Admin routes
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
