@@ -1,9 +1,9 @@
-// public\js\page\item-unit.js
+// public\js\page\sub-category.js
 $(document).ready(function () {
     function fetchNextUnitCode() {
         $.ajax({
             type: "GET",
-            url: "/Item-Units/NextCode",
+            url: "/Sub-Category/NextCode",
             success: function (response) {
                 $("#unitcode").val(response.unitcode);
             },
@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     function refreshTable() {
         $.ajax({
-            url: "/Item-Units/table",
+            url: "/Sub-Category/table",
             type: "GET",
             success: function (response) {
                 $("table tbody").html(response);
@@ -28,20 +28,20 @@ $(document).ready(function () {
 
     fetchNextUnitCode();
 
-    $("#addItemUnitsForm").on("submit", function (e) {
+    $("#addItemSubCategoryForm").on("submit", function (e) {
         e.preventDefault();
 
         const formData = $(this).serialize();
         $.ajax({
             type: "POST",
-            url: "/Item-Units/Page/Store",
+            url: "/Sub-Category/Page/Store",
             data: formData,
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
             success: function (response) {
                 toastr.success("Added successfully!");
-                $("#addItemUnitsForm")[0].reset();
+                $("#addItemSubCategoryForm")[0].reset();
                 fetchNextUnitCode();
                 refreshTable();
             },
@@ -69,7 +69,7 @@ $(document).ready(function () {
             if (result.isConfirmed) {
                 $.ajax({
                     type: "DELETE",
-                    url: `/Item-Unit/Delete/${unitcode}`,
+                    url: `/Sub-Category/Delete/${unitcode}`,
                     headers: {
                         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                             "content"
@@ -84,8 +84,8 @@ $(document).ready(function () {
                         refreshTable();
 
                         $("#clearButton").click();
-                        $("#addItemUnitsBtn").show();
-                        $("#saveItemUnitsBtn").hide();
+                        $("#addSubCategoryBtn").show();
+                        $("#saveSubCategoryBtn").hide();
                         $("#resetButton").show();
                         $("#clearButton").hide();
                     },
@@ -104,7 +104,7 @@ $(document).ready(function () {
     $("#searchInput").on("keyup", function () {
         let searchValue = $(this).val().toLowerCase();
 
-        $("#itemUnitsTable tr").each(function () {
+        $("#itemSubCategoryTable tr").each(function () {
             let unitCode = $(this).find("td:eq(0)").text().toLowerCase();
             let description = $(this).find("td:eq(1)").text().toLowerCase();
 
@@ -134,7 +134,7 @@ $(document).ready(function () {
             if (result.isConfirmed) {
                 $.ajax({
                     type: "DELETE",
-                    url: "/Item-Unit/Reset",
+                    url: "/Sub-Category/Reset",
                     headers: {
                         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
                             "content"
@@ -142,7 +142,7 @@ $(document).ready(function () {
                     },
                     success: function (response) {
                         toastr.success(response.message);
-                        $("#itemUnitsTable").html("");
+                        $("#itemSubCategoryTable").html("");
                         fetchNextUnitCode();
                         refreshTable();
                     },
@@ -157,18 +157,18 @@ $(document).ready(function () {
         });
     });
 
-    $("#saveItemUnitsBtn").hide();
+    $("#saveSubCategoryBtn").hide();
     $("#clearButton").hide();
 
-    $(document).on("click", "#itemUnitsTable tr", function () {
+    $(document).on("click", "#itemSubCategoryTable tr", function () {
         let unitCode = $(this).find("td:eq(0)").text().trim();
         let description = $(this).find("td:eq(1)").text().trim();
 
         $("#unitcode").val(unitCode);
         $("#pname").val(description);
 
-        $("#addItemUnitsBtn").hide();
-        $("#saveItemUnitsBtn").show();
+        $("#addSubCategoryBtn").hide();
+        $("#saveSubCategoryBtn").show();
 
         $("#resetButton").hide();
         $("#clearButton").show();
@@ -178,14 +178,14 @@ $(document).ready(function () {
         e.preventDefault();
         fetchNextUnitCode();
         $("#pname").val("");
-        $("#addItemUnitsBtn").show();
-        $("#saveItemUnitsBtn").hide();
+        $("#addSubCategoryBtn").show();
+        $("#saveSubCategoryBtn").hide();
 
         $("#resetButton").show();
         $("#clearButton").hide();
     });
 
-    $("#saveItemUnitsBtn").on("click", function () {
+    $("#saveSubCategoryBtn").on("click", function () {
         let unitcode = $("#unitcode").val().trim();
         let pname = $("#pname").val().trim();
 
@@ -196,7 +196,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "PUT",
-            url: "/Item-Unit/Update",
+            url: "/Sub-Category/Update",
             data: {
                 unitcode: unitcode,
                 pname: pname,
@@ -208,8 +208,8 @@ $(document).ready(function () {
                 fetchNextUnitCode();
                 $("#pname").val("");
 
-                $("#addItemUnitsBtn").show();
-                $("#saveItemUnitsBtn").hide();
+                $("#addSubCategoryBtn").show();
+                $("#saveSubCategoryBtn").hide();
 
                 $("#resetButton").show();
                 $("#clearButton").hide();

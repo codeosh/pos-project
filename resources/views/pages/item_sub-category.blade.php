@@ -1,7 +1,7 @@
-{{-- resources\views\pages\item_units.blade.php --}}
+{{-- resources\views\pages\item_sub-category.blade.php --}}
 @extends('layouts.main_layout')
 
-@section('title', 'Item-Units - POS')
+@section('title', 'Item Sub-Category - POS')
 <style>
     @media screen and (max-width: 1250px) {
         .input-container {
@@ -38,6 +38,7 @@
         }
     }
 </style>
+
 @section('content')
 <div class="input-container shadow-md p-3 bg-white rounded flex items-center justify-between">
     <div class="search-container relative w-60">
@@ -50,7 +51,7 @@
         </svg>
     </div>
 
-    <form id="addItemUnitsForm">
+    <form id="addItemSubCategoryForm">
         @csrf
         <div class="input-group flex items-center gap-2">
             <div class="input w-32">
@@ -60,9 +61,9 @@
                 <x-bladewind.input size="small" placeholder="Description" id="pname" name="pname" autocomplete="off" />
             </div>
 
-            <x-bladewind.button icon="plus" size="small" id="addItemUnitsBtn" can_submit="true" class="w-32">Add New
+            <x-bladewind.button icon="plus" size="small" id="addSubCategoryBtn" can_submit="true" class="w-32">Add New
             </x-bladewind.button>
-            <x-bladewind.button icon="plus" size="small" id="saveItemUnitsBtn" class="w-32">Save
+            <x-bladewind.button icon="plus" size="small" id="saveSubCategoryBtn" class="w-32">Save
             </x-bladewind.button>
             <x-bladewind.button size="small" color="gray" id="resetButton" class="w-32">Reset</x-bladewind.button>
             <x-bladewind.button size="small" color="gray" id="clearButton" class="w-32">Clear</x-bladewind.button>
@@ -78,13 +79,13 @@
                 <th>Description</th>
                 <th style="width: 15rem;">Action</th>
             </thead>
-            <tbody id="itemUnitsTable">
-                @include('partials.item_unit')
+            <tbody id="itemSubCategoryTable">
+                {{-- @include('partials.item_unit') --}}
             </tbody>
         </table>
     </div>
 </div>
 
 {{-- Scripts Compiled --}}
-<script src="{{asset('js/page/item-unit.js')}}"></script>
+<script src="{{asset('js/page/sub-category.js')}}"></script>
 @endsection

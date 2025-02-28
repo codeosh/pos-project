@@ -39,6 +39,14 @@ Route::delete('/Item-Unit/Delete/{unitcode}', [ItemUnitController::class, 'destr
 Route::delete('/Item-Unit/Reset', [ItemUnitController::class, 'resetItemUnit']);
 Route::put('/Item-Unit/Update', [ItemUnitController::class, 'update']);
 
+// Item Sub-Category Routes
+Route::post('/Sub-Category/Page/Store', [ItemUnitController::class, 'store']);
+Route::get('/Sub-Category/NextCode', [ItemUnitController::class, 'getNextUnitCode']);
+Route::get('/Sub-Category/table', [ItemUnitController::class, 'refreshTable'])->name('sub-category.table');
+Route::delete('/Sub-Category/Delete/{unitcode}', [ItemUnitController::class, 'destroy']);
+Route::delete('/Sub-Category/Reset', [ItemUnitController::class, 'resetSubCategory']);
+Route::put('/Sub-Category/Update', [ItemUnitController::class, 'update']);
+
 // Admin routes
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
     Route::get('/admin-dashboard', function () {
