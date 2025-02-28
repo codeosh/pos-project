@@ -5,6 +5,7 @@ use App\Http\Controllers\Page\ContactController;
 use App\Http\Controllers\Page\ItemCatController;
 use App\Http\Controllers\Page\ItemUnitController;
 use App\Http\Controllers\Page\ProductListController;
+use App\Http\Controllers\Page\SubCategoryController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Models\ItemUnit;
 use Illuminate\Support\Facades\Route;
@@ -40,12 +41,12 @@ Route::delete('/Item-Unit/Reset', [ItemUnitController::class, 'resetItemUnit']);
 Route::put('/Item-Unit/Update', [ItemUnitController::class, 'update']);
 
 // Item Sub-Category Routes
-Route::post('/Sub-Category/Page/Store', [ItemUnitController::class, 'store']);
-Route::get('/Sub-Category/NextCode', [ItemUnitController::class, 'getNextUnitCode']);
-Route::get('/Sub-Category/table', [ItemUnitController::class, 'refreshTable'])->name('sub-category.table');
-Route::delete('/Sub-Category/Delete/{unitcode}', [ItemUnitController::class, 'destroy']);
-Route::delete('/Sub-Category/Reset', [ItemUnitController::class, 'resetSubCategory']);
-Route::put('/Sub-Category/Update', [ItemUnitController::class, 'update']);
+Route::post('/Sub-Category/Page/Store', [SubCategoryController::class, 'store']);
+Route::get('/Sub-Category/NextCode', [SubCategoryController::class, 'getNextUnitCode']);
+Route::get('/Sub-Category/table', [SubCategoryController::class, 'refreshTable'])->name('sub-category.table');
+Route::delete('/Sub-Category/Delete/{unitcode}', [SubCategoryController::class, 'destroy']);
+Route::delete('/Sub-Category/Reset', [SubCategoryController::class, 'resetSubCategory']);
+Route::put('/Sub-Category/Update', [SubCategoryController::class, 'update']);
 
 // Admin routes
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
@@ -67,4 +68,5 @@ Route::middleware([RoleMiddleware::class . ':admin'], [RoleMiddleware::class . '
     Route::get('/contacts', [ContactController::class, 'index'])->name('page.contact');
     Route::get('/product-list', [ProductListController::class, 'index'])->name('page.productl-list');
     Route::get('/item-units', [ItemUnitController::class, 'index'])->name('page.item-units');
+    Route::get('/sub-category', [SubCategoryController::class, 'index'])->name('page.sub-category');
 });

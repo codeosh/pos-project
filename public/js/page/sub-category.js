@@ -27,6 +27,7 @@ $(document).ready(function () {
     }
 
     fetchNextUnitCode();
+    refreshTable();
 
     $("#addItemSubCategoryForm").on("submit", function (e) {
         e.preventDefault();

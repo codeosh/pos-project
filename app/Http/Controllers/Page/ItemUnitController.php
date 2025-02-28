@@ -111,12 +111,12 @@ class ItemUnitController extends Controller
         $category = ItemUnit::where('unitcode', $unitcode)->first();
 
         if (!$category) {
-            return response()->json(['success' => false, 'message' => 'Item category not found.'], 404);
+            return response()->json(['success' => false, 'message' => 'Item units not found.'], 404);
         }
 
         $category->delete();
 
-        return response()->json(['success' => true, 'message' => 'Item category deleted successfully.']);
+        return response()->json(['success' => true, 'message' => 'Item units deleted successfully.']);
     }
 
     public function resetItemUnit()
@@ -124,7 +124,7 @@ class ItemUnitController extends Controller
         try {
             ItemUnit::truncate();
 
-            return response()->json(['success' => true, 'message' => 'All item categories have been deleted.']);
+            return response()->json(['success' => true, 'message' => 'All item units have been deleted.']);
         } catch (Exception $error) {
             return response()->json([
                 'success' => false,

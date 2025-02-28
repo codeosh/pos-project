@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li class="mb-1">
-                        <a href="#" class="item-links">
+                        <a href="{{route('page.sub-category')}}" class="item-links {{ Request::routeIs('page.sub-category') ? 'active' : '' }}">
                             <i class="fa-solid fa-list"></i> Item Sub-Category
                         </a>
                     </li>

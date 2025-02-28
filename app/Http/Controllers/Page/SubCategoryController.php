@@ -25,7 +25,7 @@ class SubCategoryController extends Controller
             ->orderBy('created_at', 'DESC')
             ->get();
 
-        return view('pages.item_sub-category', compact('subcategories'));
+        return view('partials.sub_category', compact('subcategories'));
     }
 
     public function store(Request $request)
