@@ -1,4 +1,7 @@
 // public\js\page\product-list.js
+function closeProductModal() {
+    hideModal("add_products_modal");
+}
 $(document).ready(function () {
     const button = $("#dropdownButton");
     const menu = $("#dropdownMenu");

@@ -18,7 +18,7 @@
     </div>
 
     <div class="button-container flex gap-1">
-      <x-bladewind.button icon="plus" size="small" class="w-32" onclick="showModal('')">Add New
+      <x-bladewind.button icon="plus" size="small" class="w-32" onclick="showModal('add_products_modal')">Add New
       </x-bladewind.button>
 
       <div class="relative inline-block">
@@ -161,4 +161,6 @@
 
 {{-- Scripts Compiled --}}
 <script src="{{asset('js/page/product-list.js')}}"></script>
+
+@include('modals.add_products')
 @endsection
