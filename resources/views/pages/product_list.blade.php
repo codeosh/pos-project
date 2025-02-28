@@ -90,13 +90,9 @@
     <label for="dropProdUnit" class="text-sm">Unit:</label>
     <select name="dropProdUnit" id="dropProdUnit" class="dropdown h-10 cursor-pointer">
       <option selected>Select Unit</option>
-      <option value="PCS">PCS</option>
-      <option value="BOX">BOX</option>
-      <option value="KLS">KLS</option>
-      <option value="LTR">LTR</option>
-      <option value="SET">SET</option>
-      <option value="CTN">CTN</option>
-      <option value="PCK">PCK</option>
+        @foreach ($itemunits as $itemunit)
+          <option value="{{ $itemunit->unitcode }}">{{ $itemunit->pname }}</option>
+        @endforeach
     </select>
   </div>
 
@@ -105,7 +101,7 @@
     <select name="dropProdCategory" id="dropProdCategory" class="dropdown h-10 cursor-pointer">
       <option selected>Select Category</option>
       @foreach ($categories as $category)
-      <option value="{{ $category->unitcode }}">{{ $category->pname }}</option>
+        <option value="{{ $category->unitcode }}">{{ $category->pname }}</option>
       @endforeach
     </select>
   </div>
@@ -114,6 +110,9 @@
     <label for="dropProdSubCategory" class="text-sm">Sub-Category:</label>
     <select name="dropProdSubCategory" id="dropProdSubCategory" class="dropdown h-10 cursor-pointer">
       <option selected>Select Sub-Category</option>
+      @foreach ($subcategories as $subcategory)
+        <option value="{{ $subcategory->unitcode }}">{{ $subcategory->pname }}</option>
+      @endforeach
     </select>
   </div>
 
