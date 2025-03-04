@@ -71,6 +71,7 @@ class ProductListController extends Controller
       ]);
 
       DB::commit();
+      return response()->json(['success' => true, 'message' => 'Added successfully!']);
     } catch (Exception $error) {
       DB::rollBack();
       return response()->json([
