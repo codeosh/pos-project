@@ -18,4 +18,28 @@ $(document).ready(function () {
             setTimeout(() => menu.addClass("hidden"), 200); // Hide after transition
         }
     });
+    
+    $('#addProductForm').on('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission
+    
+        let formData = new FormData(this); // Get form data
+    
+        $.ajax({
+            url: `{{ route('products.store') }}'`, // Route to store the product
+            type: 'POST',
+            data: formData, 
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                // Handle success (e.g., show a success message, close the modal, etc.)
+                alert(response.message);
+                $('#add_products_modal').modal('hide');
+            },
+            error: function(response) {
+                // Handle error (e.g., show an error message)
+                alert('There was an error saving the product.');
+            }
+        });
+    });
+    
 });

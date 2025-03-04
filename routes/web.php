@@ -6,6 +6,7 @@ use App\Http\Controllers\Page\ItemCatController;
 use App\Http\Controllers\Page\ItemUnitController;
 use App\Http\Controllers\Page\ProductListController;
 use App\Http\Controllers\Page\SubCategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Middleware\RoleMiddleware;
 use App\Models\ItemUnit;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +48,9 @@ Route::get('/Sub-Category/table', [SubCategoryController::class, 'refreshTable']
 Route::delete('/Sub-Category/Delete/{unitcode}', [SubCategoryController::class, 'destroy']);
 Route::delete('/Sub-Category/Reset', [SubCategoryController::class, 'resetSubCategory']);
 Route::put('/Sub-Category/Update', [SubCategoryController::class, 'update']);
+
+// Product Routes
+Route::post('/Product/Page/Store', [ProductListController::class, 'store'])->name('products.store');
 
 // Admin routes
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {
