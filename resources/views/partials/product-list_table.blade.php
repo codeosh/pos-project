@@ -6,14 +6,14 @@
     <td>{{ $productlist->pscode }}</td>
     <td>{{ $productlist->pbrand }}</td>
     <td>{{ $productlist->unit }}</td>
+    <td>{{ $productlist->costing }}</td>
     <td>{{ $productlist->ptype }}</td>
     <td>{{ $productlist->maincategory }}</td>
     <td>{{ $productlist->subcategory }}</td>
-    <td>{{ $productlist->subseller }}</td>
+    <t>{{ $productlist->subseller }}</t d>
     <td>{{ $productlist->supplier }}</td>
     <td>{{ $productlist->level }}</td>
     <td>{{ $productlist->warrantyp }}</td>
-    <td>{{ $productlist->costing }}</td>
     <td>{{ $productlist->retailmarkup }}</td>
     <td>{{ $productlist->retailprice }}</td>
     <td>{{ $productlist->specialmarkup }}</td>
