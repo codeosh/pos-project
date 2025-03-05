@@ -22,4 +22,24 @@ $(document).ready(function () {
             setTimeout(() => menu.addClass("hidden"), 200);
         }
     });
+
+    $("#addProductForm").on("submit", function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: "/Product/Page/Store",
+            data: $(this).serialize(),
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+            success: function (response) {
+                toastr.success("Added successfully!");
+                $("#addProductForm")[0].reset();
+            },
+            error: function (xhr) {
+                toastr.error(xhr.responseJSON?.message || "An error occurred.");
+            },
+        });
+    });
 });

@@ -19,13 +19,16 @@ class ProductListController extends Controller
     $itemunits = ItemUnit::all();
     $subcategories = SubCategory::all();
 
-    return view('pages.product_list', compact('categories', 'itemunits', 'subcategories'));
+    $productlists = Product::latest()->get();
+
+    return view('pages.product_list', compact('categories', 'itemunits', 'subcategories', 'productlists'));
   }
 
   public function store(Request $request)
   {
     $validatedData = $request->validate([
       'pcode' => 'nullable|integer',
+      'barcode' => 'nullable|integer',
       'pscode' => 'nullable|string',
       'pbrand' => 'nullable|string',
       'dropUnit' => 'nullable|string',
@@ -51,6 +54,7 @@ class ProductListController extends Controller
 
       Product::create([
         'pcode' => $validatedData['pcode'],
+        'barcode' => $validatedData['pcode'],
         'pscode' => $validatedData['pscode'],
         'pbrand' => $validatedData['pbrand'],
         'unit' => $validatedData['dropUnit'],
