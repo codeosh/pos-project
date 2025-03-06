@@ -2,6 +2,19 @@
 function closeProductModal() {
     hideModal("add_products_modal");
 }
+
+function refreshTable() {
+    $.ajax({
+        url: "/Product-list/table",
+        type: "GET",
+        success: function (response) {
+            $("table tbody").html(response);
+        },
+        error: function () {
+            toastr.error("Failed to refresh table.");
+        },
+    });
+}
 $(document).ready(function () {
     const button = $("#dropdownButton");
     const menu = $("#dropdownMenu");
@@ -36,6 +49,8 @@ $(document).ready(function () {
             success: function (response) {
                 toastr.success("Added successfully!");
                 $("#addProductForm")[0].reset();
+                closeProductModal();
+                refreshTable();
             },
             error: function (xhr) {
                 toastr.error(xhr.responseJSON?.message || "An error occurred.");

@@ -49,6 +49,7 @@ Route::put('/Sub-Category/Update', [SubCategoryController::class, 'update']);
 
 // Product Routes
 Route::post('/Product/Page/Store', [ProductListController::class, 'store'])->name('products.store');
+Route::get('/Product-list/table', [ProductListController::class, 'refreshTable']);
 
 // Admin routes
 Route::middleware([RoleMiddleware::class . ':admin'])->group(function () {

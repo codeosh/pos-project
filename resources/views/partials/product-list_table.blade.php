@@ -10,7 +10,7 @@
     <td>{{ $productlist->ptype }}</td>
     <td>{{ $productlist->maincategory }}</td>
     <td>{{ $productlist->subcategory }}</td>
-    <t>{{ $productlist->subseller }}</t d>
+    <td>{{ $productlist->subseller }}</td>
     <td>{{ $productlist->supplier }}</td>
     <td>{{ $productlist->level }}</td>
     <td>{{ $productlist->warrantyp }}</td>

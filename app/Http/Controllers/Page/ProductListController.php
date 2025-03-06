@@ -24,6 +24,12 @@ class ProductListController extends Controller
     return view('pages.product_list', compact('categories', 'itemunits', 'subcategories', 'productlists'));
   }
 
+  public function refreshTable()
+  {
+    $productlists = Product::latest()->get();
+    return view('partials.product-list_table', compact('productlists'));
+  }
+
   public function store(Request $request)
   {
     $validatedData = $request->validate([
