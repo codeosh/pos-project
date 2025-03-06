@@ -6,9 +6,7 @@ use App\Http\Controllers\Page\ItemCatController;
 use App\Http\Controllers\Page\ItemUnitController;
 use App\Http\Controllers\Page\ProductListController;
 use App\Http\Controllers\Page\SubCategoryController;
-use App\Http\Controllers\ProductController;
 use App\Http\Middleware\RoleMiddleware;
-use App\Models\ItemUnit;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
